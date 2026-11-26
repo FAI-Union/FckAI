@@ -36,7 +36,7 @@ This is a **cold start**, not an algorithm problem. For an advocacy/archive repo
 | 1.1 | Discussions linked everywhere but disabled | Enable Discussions via API; keep links in README / GOVERNANCE | `has_discussions: true`, no 404 on `/discussions` | ✅ |
 | 1.2 | 75-language table dominated the README first screen | Collapse into 10 priority languages + link to LANGUAGES.md | README first 40 lines contain the value proposition and 30-second path | ✅ |
 | 1.3 | "FckAI" reads as anti-AI at first glance | Put "Human-First AI Accountability" in the first line and repo description | First screen states what we are **for** before what we oppose | ✅ |
-| 1.4 | Pages / social preview / topics / org profile missing | Enable Pages from `/docs`; set topics; upload banner; create org profile README | Landing page live, topics 20/20, preview image set, org profile visible | 🟡 — see [docs/manual-setup.md](docs/manual-setup.md); landing-page images and SEO fixed in code |
+| 1.4 | Pages / social preview / topics / org profile missing | Enable Pages from `/docs`; set topics; upload banner; create org profile README | Landing page live, topics 20/20, preview image set, org profile visible | ✅ verified 2026-11-26 15:40 — see [docs/manual-setup.md](docs/manual-setup.md) |
 | 1.5 | No protection against bot/low-effort submissions | Two Actions workflows + interaction limits + branch protection | Mock tests 10/10 pass; `existing_users`; protected `main` | ✅ |
 
 ---
@@ -117,7 +117,7 @@ Status: ✅
 - 1280×640 social preview generated from `assets/fai-banner.png`.
 - Pages landing page: manifesto + one hard evidence + participation CTA; all external links point there.
 
-Status: ✅ homepage and Pages live; `/docs/index.html` now has canonical, OG/Twitter, hreflang, JSON-LD, working logo path, `robots.txt` and `sitemap.xml`; a translated `/docs/zh-CN/` landing page is live. 🟡 description and topics (18/20) still need an org admin — exact values and commands are in [docs/manual-setup.md](docs/manual-setup.md). ⏸ **Manual step:** upload `assets/social-preview.png` (1280×640) at https://github.com/FAI-Union/FckAI/settings under **Social preview → Upload image**; GitHub exposes no REST endpoint for this.
+Status: ✅ all verified 15:40 — homepage and Pages live; canonical, OG/Twitter, hreflang, JSON-LD, `robots.txt` and `sitemap.xml` return 200; `/docs/zh-CN/` live; topics 20/20; social preview uploaded; org profile live. One cosmetic cleanup remains: the applied description duplicates one clause — see [docs/manual-setup.md](docs/manual-setup.md#verification--2026-11-26-1540-gmt8). Search impact is tracked in [docs/rank-2026-11-26-after.md](docs/rank-2026-11-26-after.md).
 
 ### 3.3 Real cold start
 

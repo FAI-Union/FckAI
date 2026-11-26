@@ -1,6 +1,6 @@
 # GitHub search baseline / 搜索排名基线
 
-Snapshot: 2026-11-26, before the P0/P1 changes were pushed. Measured with the GitHub REST repository search API (best-match default sort), using [scripts/track_search_rank.py](../scripts/track_search_rank.py).
+Snapshot: 2026-11-26, before the P0/P1 changes were pushed. Measured with the GitHub REST repository search API (best-match default sort), using [scripts/track_search_rank.py](../scripts/track_search_rank.py). See the [post-change measurement](rank-2026-11-26-after.md) for current ranks.
 
 | Query | total_count | Rank | Note |
 | --- | ---: | ---: | --- |

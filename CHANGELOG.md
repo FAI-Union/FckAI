@@ -17,6 +17,7 @@ Monthly review record for the FAI project. See [RUNBOOK.md](RUNBOOK.md#5-weekly-
 - Evidence archive expanded from 1 to 21 sourced cards across copyright/consent, jobs, energy and deepfakes; each card has tags, a verbatim quote and a `Caveats` section. See [RESEARCH/README.md](RESEARCH/README.md).
 - Added [CAMPAIGNS/DISTRIBUTION.md](CAMPAIGNS/DISTRIBUTION.md) with channel-specific outreach drafts that are ready but not posted; added [scripts/track_search_rank.py](scripts/track_search_rank.py) and a [search baseline](docs/search-baseline.md).
 - Documented admin-only steps (description, 20 topics, social preview, org profile) in [docs/manual-setup.md](docs/manual-setup.md); the automation token has no admin/issue-write scope.
+- 15:40 verification: admin steps applied and checked (topics 20/20, custom social preview, org profile). Fixed 5 broken relative links in evidence cards and index (`bd1b60c`). Measured rank movement in [docs/rank-2026-11-26-after.md](docs/rank-2026-11-26-after.md): `AI accountability evidence` 24 → 4, `topic:ai-accountability` 42 → 6; long-tail #1 positions held; head terms unchanged. The applied description duplicates one clause — cleanup suggested in manual-setup.md.
 
 ### Metrics snapshot (2026-11-26, after P0/P1)
 
@@ -28,5 +29,6 @@ Monthly review record for the FAI project. See [RUNBOOK.md](RUNBOOK.md#5-weekly-
 | Policy proposals | 1 |
 | Translations | en, zh-CN (plus zh-CN landing page) |
 | Contributors | 1 |
-| Search rank: `AI accountability evidence` | 24 |
-| Search rank: two long-tail queries | #1 each |
+| Search rank: `AI accountability evidence` | 4 (was 24 at baseline) |
+| Search rank: `topic:ai-accountability` | 6 (was 42) |
+| Search rank: two long-tail queries | #1 each (held) |

@@ -91,3 +91,20 @@ Labels: `good first issue`, `needs-source`
 ## Why these are manual
 
 The current GitHub integration token can search and push file content, but `POST /orgs/FAI-Union/repos`, `POST /repos/FAI-Union/FckAI/issues` and repository PATCH all return 403. No automation should try to work around that; ask an org admin to run the steps above.
+
+## Verification — 2026-11-26 15:40 GMT+8
+
+| Item | Status | Evidence |
+| --- | --- | --- |
+| Topics | ✅ 20/20, exact list applied | REST `/repos/FAI-Union/FckAI` → `topics` |
+| Social preview | ✅ uploaded | repo HTML `og:image` is a `repository-images.githubusercontent.com` URL |
+| Org profile | ✅ `FAI-Union/.github` public with the draft README | 200 on the raw README URL |
+| Good-first issues | ✅ #3–#7 already labelled | issues REST response |
+| Optional evidence issues | ⬜ not created | not required |
+
+One cleanup remains: the applied description is the **old sentence plus the new one**, so `sourced evidence on training-data consent, job displacement, energy cost and deepfakes` appears twice. Suggested final value:
+
+```
+Open AI accountability and AI ethics evidence archive: sourced evidence on training-data consent, job displacement, energy cost and deepfakes. Non-commercial and checkable.
+```
+
