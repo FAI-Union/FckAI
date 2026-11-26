@@ -6,14 +6,48 @@ We are an open, non-commercial, community-driven project dedicated to advocacy a
 
 ## Languages
 
-This repository is maintained in **English** as the default language. Translations are community-contributed and live under [`locales/`](locales/). See [LANGUAGES.md](LANGUAGES.md) for the full status table and how to help.
+This repository is maintained in **English** as the default language. The root directory holds the authoritative originals; community translations live under [`locales/`](locales/) using [BCP 47](https://www.rfc-editor.org/rfc/rfc5646) language tags. See [LANGUAGES.md](LANGUAGES.md) for the status table.
 
-| Language | README | Manifesto | Governance |
-| --- | --- | --- | --- |
-| **English (default)** | [README](README.md) | [Manifesto](MANIFESTO.md) | [Governance](GOVERNANCE.md) |
-| 简体中文 | [README](locales/zh-CN/README.md) | [宣言](locales/zh-CN/MANIFESTO.md) | [治理规则](locales/zh-CN/GOVERNANCE.md) |
+### Available translations
 
-Missing your language? [Contribute a translation](CONTRIBUTING.md#translating) — every language is welcome.
+| Language | README | Manifesto | Governance | Code of Conduct |
+| --- | --- | --- | --- | --- |
+| **English (default)** | [README](README.md) | [Manifesto](MANIFESTO.md) | [Governance](GOVERNANCE.md) | [Code of Conduct](CODE_OF_CONDUCT.md) |
+| 简体中文 | [README](locales/zh-CN/README.md) | [宣言](locales/zh-CN/MANIFESTO.md) | [治理规则](locales/zh-CN/GOVERNANCE.md) | [行为准则](locales/zh-CN/CODE_OF_CONDUCT.md) |
+
+### Wanted translations
+
+All major world languages are welcome — there is no minimum speaker count. The languages below have **no translation yet**. Pick one and [contribute a translation](CONTRIBUTING.md#translating), or open a `[i18n]` issue to claim it.
+
+| Language | Tag | Language | Tag | Language | Tag |
+| --- | --- | --- | --- | --- | --- |
+| हिन्दी (Hindi) | `hi` | العربية (Arabic) | `ar` | Español (Spanish) | `es` |
+| Français (French) | `fr` | Português (Portuguese) | `pt` | বাংলা (Bengali) | `bn` |
+| Русский (Russian) | `ru` | 日本語 (Japanese) | `ja` | ਪੰਜਾਬੀ (Punjabi) | `pa` |
+| Deutsch (German) | `de` | 한국어 (Korean) | `ko` | Italiano (Italian) | `it` |
+| Türkçe (Turkish) | `tr` | Tiếng Việt (Vietnamese) | `vi` | Bahasa Indonesia (Indonesian) | `id` |
+| ไทย (Thai) | `th` | اردو (Urdu) | `ur` | Polski (Polish) | `pl` |
+| Українська (Ukrainian) | `uk` | Nederlands (Dutch) | `nl` | فارسی (Persian) | `fa` |
+| മലയാളം (Malayalam) | `ml` | தமிழ் (Tamil) | `ta` | తెలుగు (Telugu) | `te` |
+| मराठी (Marathi) | `mr` | ગુજરાતી (Gujarati) | `gu` | ಕನ್ನಡ (Kannada) | `kn` |
+| Bahasa Melayu (Malay) | `ms` | Filipino (Tagalog) | `fil` | Kiswahili (Swahili) | `sw` |
+| עברית (Hebrew) | `he` | Ελληνικά (Greek) | `el` | Čeština (Czech) | `cs` |
+| Svenska (Swedish) | `sv` | Magyar (Hungarian) | `hu` | Română (Romanian) | `ro` |
+| Dansk (Danish) | `da` | Suomi (Finnish) | `fi` | Norsk (Norwegian) | `no` |
+| Српски (Serbian) | `sr` | Hrvatski (Croatian) | `hr` | Български (Bulgarian) | `bg` |
+| Slovenčina (Slovak) | `sk` | Slovenščina (Slovenian) | `sl` | Català (Catalan) | `ca` |
+| Afrikaans | `af` | አማርኛ (Amharic) | `am` | Hausa | `ha` |
+| Yorùbá (Yoruba) | `yo` | Igbo | `ig` | isiZulu (Zulu) | `zu` |
+| Soomaali (Somali) | `so` | नेपाली (Nepali) | `ne` | සිංහල (Sinhala) | `si` |
+| မြန်မာ (Burmese) | `my` | ខ្មែរ (Khmer) | `km` | ລາວ (Lao) | `lo` |
+| Монгол (Mongolian) | `mn` | Oʻzbekcha (Uzbek) | `uz` | Қазақша (Kazakh) | `kk` |
+| Azərbaycanca (Azerbaijani) | `az` | ქართული (Georgian) | `ka` | Հայերեն (Armenian) | `hy` |
+| Shqip (Albanian) | `sq` | Македонски (Macedonian) | `mk` | Bosanski (Bosnian) | `bs` |
+| Lietuvių (Lithuanian) | `lt` | Latviešu (Latvian) | `lv` | Eesti (Estonian) | `et` |
+| Íslenska (Icelandic) | `is` | Gaeilge (Irish) | `ga` | Cymraeg (Welsh) | `cy` |
+| Euskara (Basque) | `eu` | Galego (Galician) | `gl` | 繁體中文 (Traditional Chinese) | `zh-TW` |
+
+Don't see your language? [Contribute a translation](CONTRIBUTING.md#translating) — every language is welcome.
 
 ## Four things we care about
 
