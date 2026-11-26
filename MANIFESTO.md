@@ -1,27 +1,27 @@
-# 宣言：人类优先的技术边界
+# Manifesto: Human-First Technological Boundaries
 
-我们欢迎技术，但拒绝把人当成技术的注脚。以下五条是我们共同的最低共识。
+We welcome technology, but we refuse to treat people as a footnote to it. The following five commitments are our common minimum consensus.
 
-## 一、创作必须有同意
+## I. Creation requires consent
 
-训练数据不是无主的原材料。创作者应当知道自己的作品是否被用于训练，并有权选择退出。我们支持可执行的知情同意机制与合理的追溯标准。
+Training data is not unowned raw material. Creators should know whether their work is being used for training, and have the right to opt out. We support enforceable informed-consent mechanisms and reasonable traceability standards.
 
-## 二、效率不应由个体买单
+## II. Efficiency must not be paid for by individuals
 
-当自动化带来岗位重组，受益方应承担再培训与过渡支持的责任。把"适应变化"简单地丢给被替代的人，不是进步，是成本转嫁。
+When automation reshuffles jobs, those who benefit should bear the responsibility for retraining and transition support. Simply telling displaced people to "adapt" is not progress — it is cost-shifting.
 
-## 三、算力必须被计量
+## III. Compute must be measured
 
-模型训练与推理消耗真实的能源与水。我们要求公开披露能耗数据，并把环境成本纳入技术决策，而不是把它留在账单的背面。
+Model training and inference consume real energy and water. We require public disclosure of energy data and that environmental costs be built into technical decisions, rather than left on the back of a bill.
 
-## 四、决定必须可解释
+## IV. Decisions must be explainable
 
-当算法参与招聘、信贷、司法、医疗等影响人的决定时，受影响者有权知道理由，并拥有申诉通道。"模型是这样说的"不构成解释。
+When algorithms participate in decisions that affect people — hiring, credit, justice, healthcare — those affected have the right to know the reasons and to have an appeal channel. "The model said so" is not an explanation.
 
-## 五、真实需要被保护
+## V. Truth must be protected
 
-深度伪造让"眼见为实"失效。我们支持内容溯源与清晰标识，同时反对以治理为名泛化监控。保护真实，不等于扩大监视。
+Deepfakes break the assumption that "seeing is believing." We support content provenance and clear labeling, while opposing the generalization of surveillance in the name of governance. Protecting truth does not mean expanding surveillance.
 
 ---
 
-**我们不是反对者，我们是问责者。** 如果您认同，请从提交一条带来源的证据开始。
+**We are not opponents. We are accountability seekers.** If you agree, start by contributing one sourced piece of evidence.

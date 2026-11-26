@@ -1,41 +1,41 @@
-# 治理规则
+# Governance Rules
 
-本文件规定本联盟如何做决定、谁来做决定，以及成员如何退出。
+This document defines how this alliance makes decisions, who decides, and how members leave.
 
-## 核心原则
+## Core principles
 
-- **共识优先**：尽量通过讨论达成一致，而不是简单多数投票。
-- **证据优先**：事实性主张必须有来源；无来源的内容标记为 `needs-source`，不作为决策依据。
-- **透明留痕**：所有决定在 Issue 或 Discussion 中公开讨论并形成记录。
+- **Consensus first**: seek agreement through discussion rather than a simple majority vote.
+- **Evidence first**: factual claims must carry sources; unsourced content is tagged `needs-source` and is not used as a basis for decisions.
+- **Transparent traceability**: all decisions are discussed publicly in Issues or Discussions and recorded there.
 
-## 角色
+## Roles
 
-| 角色 | 如何成为 | 权限 |
-|---|---|---|
-| 贡献者 Contributor | 提交过至少一次被合并的内容 | 发起 Issue、参与讨论 |
-| 维护者 Maintainer | 由现有维护者提名，经共识通过 | 合并 PR、打标签、审核内容 |
-| 召集人 Coordinator | 维护者中轮换担任，任期三个月 | 主持讨论、汇总共识、发布正式文件 |
+| Role | How to become one | Permissions |
+| --- | --- | --- |
+| Contributor | At least one merged contribution | Open issues, join discussions |
+| Maintainer | Nominated by an existing maintainer, approved by consensus | Merge PRs, apply labels, review content |
+| Coordinator | Rotates among maintainers, three-month term | Chair discussions, summarize consensus, publish official documents |
 
-## 决策流程
+## Decision process
 
-1. 任何成员可在 Discussion 中提出提案。
-2. 提案开放讨论至少 7 天。
-3. 若无明显反对，形成共识并记录。
-4. 若有实质分歧，召集人组织一次投票；三分之二多数通过。
-5. 通过后由维护者执行，并在 CAMPAIGNS/ 留下记录。
+1. Any member may propose a motion in Discussions.
+2. The proposal stays open for discussion for at least 7 days.
+3. If there is no clear objection, consensus is formed and recorded.
+4. If there is substantive disagreement, the coordinator organizes a vote; a two-thirds majority carries.
+5. Once approved, maintainers execute the decision and leave a record in CAMPAIGNS/.
 
-## 贡献者晋升
+## Contributor promotion
 
-- 连续三个月有建设性贡献，且无行为准则违规记录。
-- 由两名维护者提名，在 Discussion 中公示 7 天。
-- 公示期无强烈反对即可晋升。
+- Three consecutive months of constructive contribution with no code-of-conduct violations.
+- Nominated by two maintainers and posted for 7 days in Discussions.
+- Promotion is granted if there is no strong objection during the posting period.
 
-## 退出机制
+## Leaving
 
-- 任何成员可随时退出，无需说明理由。
-- 维护者若连续三个月不活跃，转为贡献者。
-- 严重违反行为准则者，按 CODE_OF_CONDUCT.md 第 4 节处理。
+- Any member may leave at any time without giving a reason.
+- A maintainer inactive for three consecutive months becomes a contributor.
+- Serious code-of-conduct violations are handled under section 4 of CODE_OF_CONDUCT.md.
 
-## 路线分歧
+## Route disagreements
 
-若成员在"温和倡导"与"强硬行动"之间产生不可调和的分歧，优先通过分叉（fork）解决，而非在仓库内相互消耗。分叉后的项目不得沿用 FAI 或「AI 问责联盟」名称。
+If members reach an irreconcilable split between "moderate advocacy" and "hardline action", prefer a fork over infighting inside the repository. A forked project may not reuse the FAI or "AI Accountability Union" name.

@@ -1,40 +1,55 @@
-# FAI · AI 问责联盟
+# FckAI · FAI — AI Accountability Union
 
-> FAI 反对的是**不受约束的 AI 部署方式**，不是 AI 工具本身。我们主张人类优先、可问责的技术边界。
+> FAI opposes **unconstrained ways of deploying AI**, not AI tools themselves. We advocate human-first, accountable technological boundaries.
 
-我们是一个开放、非商业、社区驱动的倡导与信息归档项目。我们记录人在 AI 时代的真实处境，并把这些感受转化为可追溯、可核查的公共信息。
+We are an open, non-commercial, community-driven project dedicated to advocacy and archiving. We record what it is like to be human in the age of AI, and turn those experiences into traceable, verifiable public information.
 
-## 我们关注的四件事
+## Languages
 
-1. **训练数据的版权与知情同意** — 创作者的作品不应在未经许可的情况下成为模型训练材料。
-2. **就业冲击与再培训责任** — 技术替代的成本不应由个体独自承担。
-3. **能耗与环境成本** — 模型扩张的能源账单需要被公开计量。
-4. **深度伪造与算法问责** — 当系统作出影响人的决定时，必须有人能解释、能申诉。
+This repository is maintained in **English** as the default language. Translations are community-contributed and live under [`locales/`](locales/). See [LANGUAGES.md](LANGUAGES.md) for the full status table and how to help.
 
-## 我们的红线
+| Language | README | Manifesto | Governance |
+| --- | --- | --- | --- |
+| **English (default)** | [README](README.md) | [Manifesto](MANIFESTO.md) | [Governance](GOVERNANCE.md) |
+| 简体中文 | [README](locales/zh-CN/README.md) | [宣言](locales/zh-CN/MANIFESTO.md) | [治理规则](locales/zh-CN/GOVERNANCE.md) |
 
-- 不骚扰个人、不攻击开发者、不威胁任何群体。
-- 不破坏系统、不发起攻击性行动。
-- 不传播未经核实的数据 —— 所有事实性主张必须附来源，见 [RESEARCH/](RESEARCH/)。
-- 不冒充任何官方机构或本项目以外的身份。
+Missing your language? [Contribute a translation](CONTRIBUTING.md#translating) — every language is welcome.
 
-## 目录导航
+## Four things we care about
 
-| 目录                                         | 用途                             |
-| ------------------------------------------ | ------------------------------ |
-| [MANIFESTO.md](MANIFESTO.md)               | 五条核心主张                         |
-| [CODE\_OF\_CONDUCT.md](CODE_OF_CONDUCT.md) | 行为准则（Contributor Covenant 2.1） |
-| [GOVERNANCE.md](GOVERNANCE.md)             | 共识决策与贡献者晋升机制                   |
-| [POLICY/](POLICY/)                         | 政策建议书                          |
-| [RESEARCH/](RESEARCH/)                     | 带来源的证据库，每条主张必须附引用              |
-| [CAMPAIGNS/](CAMPAIGNS/)                   | 联署、公开信与活动记录                    |
+1. **Copyright and informed consent in training data** — creators' work should not become model training material without permission.
+2. **Job displacement and the duty to retrain** — the cost of technological substitution should not fall on individuals alone.
+3. **Energy and environmental cost** — the energy bill of expanding models must be measured publicly.
+4. **Deepfakes and algorithmic accountability** — when a system makes a decision that affects a person, someone must be able to explain it and offer an appeal.
 
-## 如何参与
+## Our red lines
 
-1. 阅读 [MANIFESTO.md](MANIFESTO.md) 和 [行为准则](CODE_OF_CONDUCT.md)。
-2. 在 [Discussions](../../discussions) 发起讨论，或按 [Issue 模板](.github/ISSUE_TEMPLATE) 提交议题、证据或行动建议。
-3. 提交事实性内容时，务必附上原始来源；没有来源的主张会被标记为 `needs-source`。
+- No harassment of individuals, no attacks on developers, no threats against any group.
+- No sabotage and no offensive actions against systems.
+- No unverified data — every factual claim must carry a source; see [RESEARCH/](RESEARCH/).
+- No impersonating any official body or identity outside this project.
 
-## 免责声明
+## Directory guide
 
-FAI 为社区自发组织，**与 GitHub, Inc. 及任何商业实体无关联**。本项目不含商业推广、不收集个人敏感信息、不用于任何商业交易。站点的数字指标仅用于呈现社区投稿的统计，不构成科学调查或权威结论。
+| Path | Purpose |
+| --- | --- |
+| [MANIFESTO.md](MANIFESTO.md) | Five core commitments |
+| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Code of Conduct (Contributor Covenant 2.1) |
+| [GOVERNANCE.md](GOVERNANCE.md) | Consensus decisions and contributor promotion |
+| [POLICY/](POLICY/) | Policy proposals |
+| [RESEARCH/](RESEARCH/) | Evidence library with sources — every claim must cite |
+| [CAMPAIGNS/](CAMPAIGNS/) | Petitions, open letters, and campaign records |
+| [locales/](locales/) | Community translations |
+| [LANGUAGES.md](LANGUAGES.md) | Translation status and contributor guide |
+| [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) | Issue templates |
+
+## How to participate
+
+1. Read the [Manifesto](MANIFESTO.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
+2. Start a discussion in [Discussions](https://github.com/FAI-Union/FckAI/discussions), or file an issue, evidence, or action proposal using the [issue templates](.github/ISSUE_TEMPLATE).
+3. When submitting factual content, always include the original source. Unsourced claims will be tagged `needs-source`.
+4. Want to translate? Read [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Disclaimer
+
+FAI is a self-organized community initiative, **unaffiliated with GitHub, Inc. or any commercial entity**. This project contains no commercial promotion, does not collect sensitive personal information, and is not used for any commercial transaction. The site's numeric metrics merely reflect community submissions and do not constitute a scientific survey or authoritative conclusion.
