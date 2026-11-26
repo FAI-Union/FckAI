@@ -65,6 +65,7 @@
 | [CAMPAIGNS/](../../CAMPAIGNS/) | 联署、公开信与活动记录 |
 | [locales/](../../locales/) | 社区翻译 |
 | [CONTRIBUTING.md](../../CONTRIBUTING.md) | 参与与翻译指南 |
+| [ai-tools/](../../ai-tools/README.md) | 仓库专属 AI 工具：MCP 服务、CLI 与技能 |
 
 ## 如何参与
 

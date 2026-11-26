@@ -1,6 +1,6 @@
 # GitHub search rank snapshot — after P0/P1
 
-Measured 2026-11-26 ~15:40 GMT+8 with [scripts/track_search_rank.py](scripts/track_search_rank.py), twice for the key queries to confirm stability. Compare with the pre-change [baseline](search-baseline.md).
+Measured 2026-11-26 ~15:40 GMT+8 with [scripts/track_search_rank.py](../scripts/track_search_rank.py), twice for the key queries to confirm stability. Compare with the pre-change [baseline](search-baseline.md).
 
 | Query | Baseline rank | Current rank | Change |
 | --- | ---: | ---: | --- |

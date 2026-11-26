@@ -55,6 +55,7 @@ All other languages are still welcome — no minimum speaker count. See the [ful
 | [locales/](locales/) | Community translations |
 | [LANGUAGES.md](LANGUAGES.md) | Translation status and contributor guide |
 | [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) | Issue templates |
+| [ai-tools/](ai-tools/README.md) | MCP server, CLI and skills for repo-specific AI workflows |
 
 ## Evidence index
 
