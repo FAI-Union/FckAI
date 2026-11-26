@@ -1,19 +1,31 @@
-# FAI · AI 问责联盟
+<p align="center">
+  <img src="../../assets/fai-logo.png" alt="FAI logo" width="120">
+</p>
 
-> FAI 反对的是**不受约束的 AI 部署方式**，不是 AI 工具本身。我们主张人类优先、可问责的技术边界。
+# FAI · 人类优先的 AI 问责
 
-我们是一个开放、非商业、社区驱动的倡导与信息归档项目。我们记录人在 AI 时代的真实处境，并把这些感受转化为可追溯、可核查的公共信息。
+**我们是一个开放、非商业的社区，为 AI 的真实代价建立可核查的公开档案。**
+
+为什么是现在：技术扩张正在跑赢问责。我们把个体处境转化为可追溯的证据，让影响人的决策能够被审视、讨论与申诉。我们欢迎 AI 工具；我们反对的是让人承担代价的**不受约束的部署**。
+
+**你的 30 秒：** Star 本仓库 → [认领一种语言](../../LANGUAGES.md#priority-languages优先语言) → [提交一条带来源的证据卡](../../.github/ISSUE_TEMPLATE/evidence.md)。整个循环就这么简单。
+
+[阅读宣言](MANIFESTO.md) · [浏览证据库](../../RESEARCH/) · [加入讨论](https://github.com/FAI-Union/FckAI/discussions)
+
+---
 
 ## 语言
 
-本仓库以**英语**为默认语言，根目录内容为权威原文。译文由社区维护，见 [`locales/`](../../locales/)。完整状态与参与方式见 [LANGUAGES.md](../../LANGUAGES.md)。
+本仓库以**英语**为默认语言，根目录内容为权威原文。译文由社区维护，见 [`locales/`](../../locales/)。完整状态见 [LANGUAGES.md](../../LANGUAGES.md)。
 
 | 语言 | README | 宣言 | 治理规则 |
 | --- | --- | --- | --- |
 | **English (默认)** | [README](../../README.md) | [Manifesto](../../MANIFESTO.md) | [Governance](../../GOVERNANCE.md) |
 | 简体中文 | [README](README.md) | [宣言](MANIFESTO.md) | [治理规则](GOVERNANCE.md) |
 
-没有你的语言？欢迎[贡献翻译](../../CONTRIBUTING.md#translating) —— 任何语言都接受。
+**正在优先建设：** Español (`es`) · Français (`fr`) · Deutsch (`de`) · 日本語 (`ja`) · 한국어 (`ko`) · Português (Brasil) (`pt-BR`) · العربية (`ar`) · हिन्दी (`hi`) · Русский (`ru`) · 繁體中文 (`zh-TW`)
+
+其他语言同样欢迎，无使用人数门槛。见[完整语言列表](../../LANGUAGES.md)，并[开 issue 认领](../../.github/ISSUE_TEMPLATE/translation.md)。
 
 ## 我们关注的四件事
 
@@ -33,12 +45,11 @@
 
 | 目录 | 用途 |
 | --- | --- |
-| [MANIFESTO.md](../../MANIFESTO.md) | 五条核心主张（英文原文） |
-| [宣言（中文）](MANIFESTO.md) | 五条核心主张 |
+| [RUNBOOK.md](../../RUNBOOK.md) | 项目维护与增长手册 |
+| [MANIFESTO.md](MANIFESTO.md) | 五条核心主张 |
 | [CODE_OF_CONDUCT.md](../../CODE_OF_CONDUCT.md) | 行为准则（Contributor Covenant 2.1） |
-| [GOVERNANCE.md](../../GOVERNANCE.md) | 共识决策与贡献者晋升机制（英文原文） |
-| [治理规则（中文）](GOVERNANCE.md) | 共识决策与贡献者晋升机制 |
-| [POLICY/](../../POLICY/) | 政策建议书 |
+| [GOVERNANCE.md](../../GOVERNANCE.md) | 共识决策与贡献者晋升机制 |
+| [POLICY/](../../POLICY/) | 政策建议书，每条须引用证据 ID |
 | [RESEARCH/](../../RESEARCH/) | 带来源的证据库，每条主张必须附引用 |
 | [CAMPAIGNS/](../../CAMPAIGNS/) | 联署、公开信与活动记录 |
 | [locales/](../../locales/) | 社区翻译 |
@@ -47,8 +58,8 @@
 ## 如何参与
 
 1. 阅读 [MANIFESTO.md](MANIFESTO.md) 和 [行为准则](../../CODE_OF_CONDUCT.md)。
-2. 在 [Discussions](https://github.com/FAI-Union/FckAI/discussions) 发起讨论，或按 [Issue 模板](../../.github/ISSUE_TEMPLATE) 提交议题、证据或行动建议。
-3. 提交事实性内容时，务必附上原始来源；没有来源的主张会被标记为 `needs-source`。
+2. 在 [Discussions](https://github.com/FAI-Union/FckAI/discussions) 发起讨论，或按 [Issue 模板](../../.github/ISSUE_TEMPLATE) 提交证据、提案或翻译。
+3. 提交事实性内容时，务必附上原始来源；没有来源的主张会被标记为 `needs-source`，且不作为决策依据。
 4. 想参与翻译？见 [CONTRIBUTING.md](../../CONTRIBUTING.md)。
 
 ## 免责声明

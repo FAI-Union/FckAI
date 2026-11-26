@@ -1,53 +1,31 @@
-# FckAI · FAI — AI Accountability Union
+<p align="center">
+  <img src="assets/fai-logo.png" alt="FAI logo" width="120">
+</p>
 
-> FAI opposes **unconstrained ways of deploying AI**, not AI tools themselves. We advocate human-first, accountable technological boundaries.
+# FAI · Human-First AI Accountability
 
-We are an open, non-commercial, community-driven project dedicated to advocacy and archiving. We record what it is like to be human in the age of AI, and turn those experiences into traceable, verifiable public information.
+**We are an open, non-commercial community archiving the real costs of AI — with sources anyone can check.**
+
+Why now: expansion is outrunning accountability. We turn individual experiences into traceable public evidence, so decisions about AI can be examined, debated and appealed. We welcome AI tools; we oppose **unconstrained deployment** that makes people pay the price.
+
+**Your 30 seconds:** Star this repo → [claim a language](LANGUAGES.md#priority-languages) → [submit one sourced evidence card](.github/ISSUE_TEMPLATE/evidence.md). That is the whole loop.
+
+[Read the manifesto](MANIFESTO.md) · [Browse the evidence](RESEARCH/) · [Join the discussion](https://github.com/FAI-Union/FckAI/discussions)
+
+---
 
 ## Languages
 
-This repository is maintained in **English** as the default language. The root directory holds the authoritative originals; community translations live under [`locales/`](locales/) using [BCP 47](https://www.rfc-editor.org/rfc/rfc5646) language tags. See [LANGUAGES.md](LANGUAGES.md) for the status table.
-
-### Available translations
+This repository is maintained in **English** as the default language. Root files are authoritative; community translations live under [`locales/`](locales/) using [BCP 47](https://www.rfc-editor.org/rfc/rfc5646) tags. Full status: [LANGUAGES.md](LANGUAGES.md).
 
 | Language | README | Manifesto | Governance | Code of Conduct |
 | --- | --- | --- | --- | --- |
 | **English (default)** | [README](README.md) | [Manifesto](MANIFESTO.md) | [Governance](GOVERNANCE.md) | [Code of Conduct](CODE_OF_CONDUCT.md) |
 | 简体中文 | [README](locales/zh-CN/README.md) | [宣言](locales/zh-CN/MANIFESTO.md) | [治理规则](locales/zh-CN/GOVERNANCE.md) | [行为准则](locales/zh-CN/CODE_OF_CONDUCT.md) |
 
-### Wanted translations
+**Priority languages we are actively building:** Español (`es`) · Français (`fr`) · Deutsch (`de`) · 日本語 (`ja`) · 한국어 (`ko`) · Português (Brasil) (`pt-BR`) · العربية (`ar`) · हिन्दी (`hi`) · Русский (`ru`) · 繁體中文 (`zh-TW`)
 
-All major world languages are welcome — there is no minimum speaker count. The languages below have **no translation yet**. Pick one and [contribute a translation](CONTRIBUTING.md#translating), or open a `[i18n]` issue to claim it.
-
-| Language | Tag | Language | Tag | Language | Tag |
-| --- | --- | --- | --- | --- | --- |
-| Afrikaans | `af` | አማርኛ (Amharic) | `am` | العربية (Arabic) | `ar` |
-| Azərbaycanca (Azerbaijani) | `az` | Български (Bulgarian) | `bg` | বাংলা (Bengali) | `bn` |
-| Bosanski (Bosnian) | `bs` | Català (Catalan) | `ca` | Čeština (Czech) | `cs` |
-| Cymraeg (Welsh) | `cy` | Dansk (Danish) | `da` | Deutsch (German) | `de` |
-| Ελληνικά (Greek) | `el` | Español (Spanish) | `es` | Eesti (Estonian) | `et` |
-| Euskara (Basque) | `eu` | فارسی (Persian) | `fa` | Suomi (Finnish) | `fi` |
-| Filipino (Tagalog) | `fil` | Français (French) | `fr` | Gaeilge (Irish) | `ga` |
-| Galego (Galician) | `gl` | ગુજરાતી (Gujarati) | `gu` | Hausa | `ha` |
-| עברית (Hebrew) | `he` | हिन्दी (Hindi) | `hi` | Hrvatski (Croatian) | `hr` |
-| Magyar (Hungarian) | `hu` | Հայերեն (Armenian) | `hy` | Bahasa Indonesia (Indonesian) | `id` |
-| Igbo | `ig` | Íslenska (Icelandic) | `is` | Italiano (Italian) | `it` |
-| 日本語 (Japanese) | `ja` | ქართული (Georgian) | `ka` | Қазақша (Kazakh) | `kk` |
-| ខ្មែរ (Khmer) | `km` | ಕನ್ನಡ (Kannada) | `kn` | 한국어 (Korean) | `ko` |
-| ລາວ (Lao) | `lo` | Lietuvių (Lithuanian) | `lt` | Latviešu (Latvian) | `lv` |
-| Македонски (Macedonian) | `mk` | മലയാളം (Malayalam) | `ml` | Монгол (Mongolian) | `mn` |
-| मराठी (Marathi) | `mr` | Bahasa Melayu (Malay) | `ms` | မြန်မာ (Burmese) | `my` |
-| नेपाली (Nepali) | `ne` | Nederlands (Dutch) | `nl` | Norsk (Norwegian) | `no` |
-| ਪੰਜਾਬੀ (Punjabi) | `pa` | Polski (Polish) | `pl` | Português (Portuguese) | `pt` |
-| Română (Romanian) | `ro` | Русский (Russian) | `ru` | සිංහල (Sinhala) | `si` |
-| Slovenčina (Slovak) | `sk` | Slovenščina (Slovenian) | `sl` | Soomaali (Somali) | `so` |
-| Shqip (Albanian) | `sq` | Српски (Serbian) | `sr` | Svenska (Swedish) | `sv` |
-| Kiswahili (Swahili) | `sw` | தமிழ் (Tamil) | `ta` | తెలుగు (Telugu) | `te` |
-| ไทย (Thai) | `th` | Türkçe (Turkish) | `tr` | Українська (Ukrainian) | `uk` |
-| اردو (Urdu) | `ur` | Oʻzbekcha (Uzbek) | `uz` | Tiếng Việt (Vietnamese) | `vi` |
-| Yorùbá (Yoruba) | `yo` | 繁體中文 (Traditional Chinese) | `zh-TW` | isiZulu (Zulu) | `zu` |
-
-Don't see your language? [Contribute a translation](CONTRIBUTING.md#translating) — every language is welcome.
+All other languages are still welcome — no minimum speaker count. See the [full language list](LANGUAGES.md) and [claim one by opening an issue](.github/ISSUE_TEMPLATE/translation.md).
 
 ## Four things we care about
 
@@ -67,10 +45,11 @@ Don't see your language? [Contribute a translation](CONTRIBUTING.md#translating)
 
 | Path | Purpose |
 | --- | --- |
+| [RUNBOOK.md](RUNBOOK.md) | How we maintain the project and grow it |
 | [MANIFESTO.md](MANIFESTO.md) | Five core commitments |
 | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Code of Conduct (Contributor Covenant 2.1) |
 | [GOVERNANCE.md](GOVERNANCE.md) | Consensus decisions and contributor promotion |
-| [POLICY/](POLICY/) | Policy proposals |
+| [POLICY/](POLICY/) | Policy proposals, each citing evidence IDs |
 | [RESEARCH/](RESEARCH/) | Evidence library with sources — every claim must cite |
 | [CAMPAIGNS/](CAMPAIGNS/) | Petitions, open letters, and campaign records |
 | [locales/](locales/) | Community translations |
@@ -80,8 +59,8 @@ Don't see your language? [Contribute a translation](CONTRIBUTING.md#translating)
 ## How to participate
 
 1. Read the [Manifesto](MANIFESTO.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
-2. Start a discussion in [Discussions](https://github.com/FAI-Union/FckAI/discussions), or file an issue, evidence, or action proposal using the [issue templates](.github/ISSUE_TEMPLATE).
-3. When submitting factual content, always include the original source. Unsourced claims will be tagged `needs-source`.
+2. Start a discussion in [Discussions](https://github.com/FAI-Union/FckAI/discussions), or file evidence, a proposal, or a translation using the [issue templates](.github/ISSUE_TEMPLATE).
+3. When submitting factual content, always include the original source. Unsourced claims are tagged `needs-source` and are not used in decisions.
 4. Want to translate? Read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Submissions are screened automatically for bot accounts and missing sources; see [Automated checks](CONTRIBUTING.md#automated-checks). A bot can flag a submission, but only a maintainer can reject it.
