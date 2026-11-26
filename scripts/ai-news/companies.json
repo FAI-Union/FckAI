@@ -1,0 +1,82 @@
+[
+  {
+    "key": "openai",
+    "category": "OpenAI",
+    "description": "Verified news and accountability signals about OpenAI. Always cite the original source.",
+    "emoji": "🤖",
+    "locale": "en-US",
+    "queries": ["OpenAI", "ChatGPT OR GPT model OpenAI"]
+  },
+  {
+    "key": "anthropic",
+    "category": "Anthropic",
+    "description": "Verified news and accountability signals about Anthropic and Claude. Always cite the original source.",
+    "emoji": "🦋",
+    "locale": "en-US",
+    "queries": ["Anthropic", "Anthropic Claude AI"]
+  },
+  {
+    "key": "google-deepmind",
+    "category": "Google DeepMind",
+    "description": "Verified news and accountability signals about Google DeepMind and Gemini. Always cite the original source.",
+    "emoji": "🧠",
+    "locale": "en-US",
+    "queries": ["Google DeepMind", "Google Gemini AI model"]
+  },
+  {
+    "key": "meta-ai",
+    "category": "Meta AI",
+    "description": "Verified news and accountability signals about Meta AI and Llama. Always cite the original source.",
+    "emoji": "🌐",
+    "locale": "en-US",
+    "queries": ["Meta AI", "Meta Llama model"]
+  },
+  {
+    "key": "xai",
+    "category": "xAI",
+    "description": "Verified news and accountability signals about xAI and Grok. Always cite the original source.",
+    "emoji": "⚡",
+    "locale": "en-US",
+    "queries": ["xAI Grok", "xAI company AI news"]
+  },
+  {
+    "key": "mistral-ai",
+    "category": "Mistral AI",
+    "description": "Verified news and accountability signals about Mistral AI. Always cite the original source.",
+    "emoji": "🟠",
+    "locale": "en-US",
+    "queries": ["Mistral AI"]
+  },
+  {
+    "key": "deepseek",
+    "category": "DeepSeek",
+    "description": "Verified news and accountability signals about DeepSeek. Always cite the original source.",
+    "emoji": "🔍",
+    "locale": "zh-CN",
+    "queries": ["DeepSeek", "深度求索 DeepSeek"]
+  },
+  {
+    "key": "alibaba-qwen",
+    "category": "Alibaba Qwen",
+    "description": "Verified news and accountability signals about Alibaba Qwen / Tongyi Qianwen. Always cite the original source.",
+    "emoji": "📚",
+    "locale": "zh-CN",
+    "queries": ["通义千问", "阿里 Qwen 模型"]
+  },
+  {
+    "key": "bytedance-doubao",
+    "category": "ByteDance Doubao",
+    "description": "Verified news and accountability signals about ByteDance Doubao. Always cite the original source.",
+    "emoji": "🥬",
+    "locale": "zh-CN",
+    "queries": ["豆包 大模型", "字节跳动 豆包 AI"]
+  },
+  {
+    "key": "moonshot-kimi",
+    "category": "Moonshot AI",
+    "description": "Verified news and accountability signals about Moonshot AI and Kimi. Always cite the original source.",
+    "emoji": "🌙",
+    "locale": "zh-CN",
+    "queries": ["月之暗面 Kimi", "Kimi 大模型"]
+  }
+]

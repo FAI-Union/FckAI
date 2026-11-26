@@ -100,6 +100,16 @@ Status: ⬜ create templates and `CHANGELOG.md`.
 
 Status: 🟡 automated checks documented in CONTRIBUTING.md; 5 seeded `good first issue` items (#3–#7) exist and are verified; ⬜ first-response SLA.
 
+### 2.6 AI-company news feed (hourly)
+
+- Ten company categories now exist in [Discussions](https://github.com/FAI-Union/FckAI/discussions/categories): OpenAI, Anthropic, Google DeepMind, Meta AI, xAI, Mistral AI, DeepSeek, Alibaba Qwen, ByteDance Doubao, Moonshot AI.
+- `scripts/ai-news/news_bot.py` pulls Bing News RSS first (resolving the original article URL) with Google News as fallback, dedupes by normalized title + URL against `.workbuddy/ai-news/state.json` and the 100 most recent Discussions, then publishes **3 items per run**, rotating across companies so each post lands in its own category.
+- Every post carries the headline, original link and a disclaimer that FAI does not verify third-party claims. No unsourced claims are introduced (red line in README).
+- The WorkBuddy automation `FAI AI 公司新闻同步到 Discussions` runs hourly. It reads the token from `.workbuddy/secrets/github_pat.txt` (gitignored); that fine-grained PAT needs **Discussions: read/write**. `python scripts/ai-news/news_bot.py setup` only verifies categories — GitHub exposes no category-creation API, so new categories must be added in the Discussions UI.
+- Acceptance test: `python scripts/ai-news/news_bot.py dry-run --per-run 3` shows three unseen items in distinct categories; `run --per-run 1` creates a Discussion visible in the matching category and updates the dedupe state. Verified 2026-11-26 (discussions #8–#10, #12).
+
+Status: ✅ categories created, bot and automation live; ⬜ consider grouping the ten categories under one Discussion section.
+
 ---
 
 ## 3. Growth: cold start and distribution
@@ -192,3 +202,4 @@ Search ranking is measured separately with [scripts/track_search_rank.py](script
 | 2026-11-26 | Runbook created; assets, README, metadata, templates applied | this commit |
 | 2026-11-26 | P0/P1 discoverability pass: keyword-first README, Pages SEO + zh-CN landing page, 20 new sourced evidence cards, distribution kit, rank tracker, manual setup checklist | files in `RESEARCH/`, `docs/`, `scripts/`, `CAMPAIGNS/`; remote metadata still admin-gated |
 | 2026-11-26 | Wave 1 publication pack prepared; newsletter copy corrected to cite the demand card (EV-2026-001) instead of the emissions card | `CAMPAIGNS/WAVE-1.md`; not posted |
+| 2026-11-26 | Ten AI-company Discussion categories created in UI; hourly news bot + dedupe state + WorkBuddy automation wired; PAT upgraded to Discussions read/write | `scripts/ai-news/`, discussions #8–#10 and #12 |
