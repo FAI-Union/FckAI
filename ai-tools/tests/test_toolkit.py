@@ -5,6 +5,8 @@ Run: python -m unittest discover -s D:/Git/FAI/ai-tools/tests -v
 
 from __future__ import annotations
 
+import contextlib
+import io
 import json
 import os
 import subprocess
@@ -210,6 +212,30 @@ class SecurityRegressionTests(unittest.TestCase):
             mcp_server._validate_args("search_repo", {"query": "x", "limit": 20}),
             {"query": "x", "limit": 20},
         )
+    def test_mcp_malformed_messages_do_not_crash(self):
+        for msg in (
+            {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": [1]},
+            {"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": [1]},
+            {"jsonrpc": "2.0", "id": 3, "method": "tools/call",
+             "params": {"name": ["repo_overview"]}},
+        ):
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                mcp_server.dispatch(msg)
+            self.assertIn('"error"', buf.getvalue())
+
+    def test_mcp_string_and_array_bounds(self):
+        with self.assertRaises(ValueError):
+            mcp_server._validate_args("search_repo", {"query": "x" * 100001})
+        with self.assertRaises(ValueError):
+            mcp_server._validate_args("validate_translation", {
+                "tag": "en", "changed_files": ["a"] * 1001
+            })
+
+    def test_dtd_detection_covers_whole_feed(self):
+        self.assertTrue(news_bot.has_dtd(b"<!DOCTYPE r [<!ENTITY x 'y'>]>"))
+        self.assertTrue(news_bot.has_dtd(b"<r>" + b" " * 9000 + b"<!ENTITY x 'y'></r>"))
+        self.assertFalse(news_bot.has_dtd(b"<r><channel><item/></channel></r>"))
 
 
 if __name__ == "__main__":

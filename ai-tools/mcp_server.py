@@ -199,6 +199,7 @@ BOUNDS: dict[str, dict[str, tuple[int, int]]] = {
     "news_status": {"tail": (1, 200)},
     "news_dry_run": {"per_run": (1, 20), "timeout": (1, 300)},
 }
+MAX_STRING_ARGS = 100_000  # generous for evidence cards, bounded for malformed clients
 
 
 def _validate_args(name: str, args: Any) -> dict[str, Any]:
@@ -224,12 +225,19 @@ def _validate_args(name: str, args: Any) -> dict[str, Any]:
         }.get(expected)
         if valid is None or not valid(value):
             raise ValueError(f"{key} must be {expected}")
-        if expected == "array" and "items" in spec:
-            item_type = spec["items"].get("type")
-            for item in value:
-                ok = isinstance(item, str) if item_type == "string" else True
-                if not ok:
-                    raise ValueError(f"{key} items must be {item_type}")
+        if expected == "string" and len(value) > MAX_STRING_ARGS:
+            raise ValueError(f"{key} must be at most {MAX_STRING_ARGS} characters")
+        if expected == "array":
+            if len(value) > 1000:
+                raise ValueError(f"{key} must be at most 1000 items")
+            if "items" in spec:
+                item_type = spec["items"].get("type")
+                for item in value:
+                    ok = isinstance(item, str) if item_type == "string" else True
+                    if not ok:
+                        raise ValueError(f"{key} items must be {item_type}")
+                    if ok and len(item) > MAX_STRING_ARGS:
+                        raise ValueError(f"{key} items are too long")
     for key, (low, high) in BOUNDS.get(name, {}).items():
         if key in args and not low <= args[key] <= high:
             raise ValueError(f"{key} must be between {low} and {high}")
@@ -259,8 +267,12 @@ def dispatch(msg: dict[str, Any]) -> None:
     method = msg.get("method", "")
     if "id" not in msg:  # notification
         return
-    if method == "initialize":
+    if method in ("initialize", "tools/call"):
         params = msg.get("params") or {}
+        if not isinstance(params, dict):
+            _error(msg_id, -32602, "params must be an object")
+            return
+    if method == "initialize":
         _reply(
             msg_id,
             {
@@ -284,8 +296,10 @@ def dispatch(msg: dict[str, Any]) -> None:
     elif method in ("resources/list", "prompts/list"):
         _reply(msg_id, {"resources": [], "prompts": []})
     elif method == "tools/call":
-        params = msg.get("params") or {}
         name = params.get("name", "")
+        if not isinstance(name, str):
+            _error(msg_id, -32602, "tool name must be a string")
+            return
         args = params.get("arguments") or {}
         tool = BY_NAME.get(name)
         if not tool:

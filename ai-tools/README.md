@@ -26,7 +26,7 @@ To point the tools at another checkout, set `FAI_REPO_ROOT` in the environment (
 python -m unittest discover -s D:/Git/FAI/ai-tools/tests -v
 ```
 
-Tests cover the 21-card schema, link lint, evidence chain, translation checks, preflight rules, secret redaction, rank diff, an MCP stdio handshake (`initialize` → `tools/list` → `tools/call`) and security regressions (draft injection, path escape, argument bounds, RSS sanitisation).
+Tests cover the 21-card schema, link lint, evidence chain, translation checks, preflight rules, secret redaction, rank diff, an MCP stdio handshake (`initialize` → `tools/list` → `tools/call`) and security regressions (draft injection, path escape, argument bounds, RSS sanitisation, DTD offset, malformed JSON-RPC messages). The MCP dispatcher rejects non-object `params`, non-string tool names and over-long string/array arguments; it must not crash on malformed input.
 
 ## MCP tools and CLI equivalents
 

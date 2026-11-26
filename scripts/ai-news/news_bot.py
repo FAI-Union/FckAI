@@ -296,6 +296,11 @@ def item_key(title: str, url: str) -> str:
     return hashlib.sha1(seed.encode("utf-8")).hexdigest()
 
 
+def has_dtd(data: bytes) -> bool:
+    """Detect DTD/entity declarations anywhere in a (bounded) RSS response."""
+    return bool(re.search(rb"<!DOCTYPE|<!ENTITY", data, re.IGNORECASE))
+
+
 def fetch_rss(url: str, attempts: int = 3) -> ET.Element | None:
     for attempt in range(attempts):
         try:
@@ -312,7 +317,7 @@ def fetch_rss(url: str, attempts: int = 3) -> ET.Element | None:
                         raise ValueError(f"RSS response exceeds {MAX_RSS_BYTES} bytes")
                     chunks.append(chunk)
                 data = b"".join(chunks)
-                if re.search(rb"<!DOCTYPE|<!ENTITY", data[:8192], re.IGNORECASE):
+                if has_dtd(data):
                     raise ValueError("RSS feed contains DTD/entity declarations")
                 return ET.fromstring(data)
         except urllib.error.HTTPError as exc:

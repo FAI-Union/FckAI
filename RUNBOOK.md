@@ -125,10 +125,11 @@ Status: ✅ implemented 2026-11-26; ⬜ each contributor registers the `fai` MCP
 - The news bot sanitises every untrusted RSS field before publishing: control characters and newlines are removed, fields are rendered as inline code/autolinks, non-http(s) links are rejected, DTD/entity declarations and RSS responses over 5 MiB are refused. Duplicate scanning covers up to 2,000 recent Discussions.
 - The PAT file is user-only (Windows ACL tightened 2026-11-26; POSIX mode 0600 enforced at runtime). Logs and tool output redact token patterns plus live `GH_PAT`/`GITHUB_TOKEN` values.
 - Toolkit file reads skip symlinks and paths outside `FAI_REPO_ROOT`; link lint rejects absolute/escaping/symlink targets. MCP input is validated against `inputSchema` with numeric bounds; `install.py` uses `sys.executable` and atomically replaces `mcp.json`.
-- `content-validation.yml` reads the full blob of newly added Markdown files so oversized/truncated patches cannot bypass the 12-link threshold.
-- Acceptance test: `python -m unittest discover -s ai-tools/tests -v` passes **15 tests** (including frontmatter-injection, path-escape, redaction, RSS-sanitisation and MCP-bound regressions); `python scripts/ai-news/news_bot.py dry-run --per-run 1` publishes nothing.
+- `content-validation.yml` reads the full head/base blobs of all added **and modified** Markdown files and counts the URL delta, so truncated/omitted patches cannot bypass the 12-link threshold; unreadable blobs fail closed.
+- Follow-up review 2026-11-26: DTD/entity detection covers the entire (≤5 MiB) RSS response, not just the first 8 KiB; MCP rejects non-object `params`, non-string tool names and over-long string/array arguments instead of crashing; see [docs/security-review-2026-11-26.md](docs/security-review-2026-11-26.md).
+- Acceptance test: `python -m unittest discover -s ai-tools/tests -v` passes **18 tests** (including frontmatter-injection, path-escape, redaction, RSS-sanitisation, DTD-offset, malformed-MCP-message and argument-bound regressions); `python scripts/ai-news/news_bot.py dry-run --per-run 1` publishes nothing.
 
-Status: ✅ implemented 2026-11-26; ⬜ re-run `install.py` after merging so contributors pick up the absolute-interpreter MCP entry.
+Status: ✅ implemented 2026-11-26; ⬜ re-run `install.py` and restart the client after merging so contributors pick up the absolute-interpreter MCP entry and the hardened dispatcher.
 
 ---
 
