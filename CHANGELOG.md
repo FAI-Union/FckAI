@@ -18,6 +18,7 @@ Monthly review record for the FAI project. See [RUNBOOK.md](RUNBOOK.md#5-weekly-
 - Added [CAMPAIGNS/DISTRIBUTION.md](CAMPAIGNS/DISTRIBUTION.md) with channel-specific outreach drafts that are ready but not posted; added [scripts/track_search_rank.py](scripts/track_search_rank.py) and a [search baseline](docs/search-baseline.md).
 - Documented admin-only steps (description, 20 topics, social preview, org profile) in [docs/manual-setup.md](docs/manual-setup.md); the automation token has no admin/issue-write scope.
 - 15:40 verification: admin steps applied and checked (topics 20/20, custom social preview, org profile). Fixed 5 broken relative links in evidence cards and index (`bd1b60c`). Measured rank movement in [docs/rank-2026-11-26-after.md](docs/rank-2026-11-26-after.md): `AI accountability evidence` 24 → 4, `topic:ai-accountability` 42 → 6; long-tail #1 positions held; head terms unchanged. The applied description duplicates one clause — cleanup suggested in manual-setup.md.
+- Wave 1 distribution pack in [CAMPAIGNS/WAVE-1.md](CAMPAIGNS/WAVE-1.md): ready-to-paste copy for HN, Lobste.rs, Reddit r/technology, V2EX and 知乎, with post URLs and a one-channel-per-day order. **Not posted.** Corrected the newsletter draft to cite EV-2026-001 (power demand) instead of EV-2026-015 (emissions), which had been described as an energy-cost figure.
 
 ### Metrics snapshot (2026-11-26, after P0/P1)
 

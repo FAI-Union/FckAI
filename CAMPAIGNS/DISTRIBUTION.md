@@ -1,6 +1,6 @@
 # Distribution kit / 分发材料包
 
-Status: prepared, **not posted**. Posting is a human action — see [RUNBOOK.md](../RUNBOOK.md) §3.4 and the red lines in [README.md](../README.md).
+Status: prepared, **not posted**. Ready-to-paste copy with post URLs, order and checks is in [WAVE-1.md](WAVE-1.md). Posting is a human action — see [RUNBOOK.md](../RUNBOOK.md) §3.4 and the red lines in [README.md](../README.md).
 
 Every channel gets the same structure: **one concrete pain + one verifiable evidence card + one immediate action**. Do not paste identical copy everywhere. Do not buy votes, do not coordinate star exchanges, do not mention "ranking" or "SEO" in public posts.
 
@@ -64,11 +64,13 @@ Every channel gets the same structure: **one concrete pain + one verifiable evid
 
 ## 5. AI-ethics newsletter / creator-rights group
 
-**Subject:** One sourced card for your next issue: AI energy disclosure
+**Subject:** One sourced card for your next issue: AI power-demand projections
 
 **Body:**
 
-> If your next issue needs a citable number on AI energy costs, here is a card with the IEA source, date, verbatim quote and caveats already extracted: https://github.com/FAI-Union/FckAI/blob/main/RESEARCH/EV-2026-015.md
+> If your next issue needs a citable projection on AI energy demand, here is a card with the IEA source, date, verbatim quote and caveats already extracted: https://github.com/FAI-Union/FckAI/blob/main/RESEARCH/EV-2026-001.md
+>
+> For emissions scenarios rather than demand, use EV-2026-015: https://github.com/FAI-Union/FckAI/blob/main/RESEARCH/EV-2026-015.md
 >
 > FAI is non-commercial and does not ask for promotion — only that the caveats travel with the number. If you know of a report we have missed, send it our way.
 

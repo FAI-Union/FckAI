@@ -131,7 +131,7 @@ Channels: Hacker News, Reddit r/technology / r/opensource, Lobste.rs, V2EX, 知�
 
 Each channel gets: **one concrete pain + one verifiable evidence + one immediate action**. Never paste the same copy everywhere.
 
-Status: 🟡 channel-specific drafts are ready in [CAMPAIGNS/DISTRIBUTION.md](CAMPAIGNS/DISTRIBUTION.md), including HN, Reddit, Lobste.rs, V2EX/知乎, newsletter, course and awesome-list outreach. Nothing has been posted — posting remains a human action.
+Status: 🟡 wave 1 is packed and ready-to-paste in [CAMPAIGNS/WAVE-1.md](CAMPAIGNS/WAVE-1.md) — HN, Lobste.rs, Reddit r/technology, V2EX and 知乎, with post URLs, spacing and a pre-flight checklist. Copy rationale stays in [CAMPAIGNS/DISTRIBUTION.md](CAMPAIGNS/DISTRIBUTION.md); wave 2 (newsletter, courses, awesome lists) needs named contacts. Nothing has been posted — posting remains a human action.
 
 ### 3.5 Citable artefacts
 
@@ -191,3 +191,4 @@ Search ranking is measured separately with [scripts/track_search_rank.py](script
 | 2026-11-26 | Discussions, signoff, Actions write, interaction limits, branch protection | verified via REST |
 | 2026-11-26 | Runbook created; assets, README, metadata, templates applied | this commit |
 | 2026-11-26 | P0/P1 discoverability pass: keyword-first README, Pages SEO + zh-CN landing page, 20 new sourced evidence cards, distribution kit, rank tracker, manual setup checklist | files in `RESEARCH/`, `docs/`, `scripts/`, `CAMPAIGNS/`; remote metadata still admin-gated |
+| 2026-11-26 | Wave 1 publication pack prepared; newsletter copy corrected to cite the demand card (EV-2026-001) instead of the emissions card | `CAMPAIGNS/WAVE-1.md`; not posted |
