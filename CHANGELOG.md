@@ -13,13 +13,20 @@ Monthly review record for the FAI project. See [RUNBOOK.md](RUNBOOK.md#5-weekly-
 - Created GitHub Pages landing page at `/docs` (https://fai-union.github.io/FckAI/).
 - Created `core`, `maintainers`, `translators` teams; set 18 topics and a searchable description; seeded 5 language-claim good-first issues (#3–#7).
 - Fixed the over-broad ruleset that had blocked all branch creation; it now protects only `main`, with PR merges allowed.
+- P0/P1 discoverability pass: README lead and evidence index rewritten around searchable phrases; `/docs` landing page fixed (image 404) and given canonical, OG/Twitter, hreflang, JSON-LD, `robots.txt`, `sitemap.xml` plus a zh-CN page.
+- Evidence archive expanded from 1 to 21 sourced cards across copyright/consent, jobs, energy and deepfakes; each card has tags, a verbatim quote and a `Caveats` section. See [RESEARCH/README.md](RESEARCH/README.md).
+- Added [CAMPAIGNS/DISTRIBUTION.md](CAMPAIGNS/DISTRIBUTION.md) with channel-specific outreach drafts that are ready but not posted; added [scripts/track_search_rank.py](scripts/track_search_rank.py) and a [search baseline](docs/search-baseline.md).
+- Documented admin-only steps (description, 20 topics, social preview, org profile) in [docs/manual-setup.md](docs/manual-setup.md); the automation token has no admin/issue-write scope.
 
-### Metrics snapshot (2026-11-26)
+### Metrics snapshot (2026-11-26, after P0/P1)
 
 | Metric | Value |
 | --- | --- |
 | Stars / forks | 0 / 0 |
-| Evidence cards | 1 |
+| Evidence cards | 21 |
+| External sources cited | 20 |
 | Policy proposals | 1 |
-| Translations | en, zh-CN |
+| Translations | en, zh-CN (plus zh-CN landing page) |
 | Contributors | 1 |
+| Search rank: `AI accountability evidence` | 24 |
+| Search rank: two long-tail queries | #1 each |

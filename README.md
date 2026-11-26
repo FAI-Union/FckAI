@@ -4,13 +4,13 @@
 
 # FAI · Human-First AI Accountability
 
-**We are an open, non-commercial community archiving the real costs of AI — with sources anyone can check.**
+**An open-source AI accountability evidence archive: sourced evidence on AI ethics, training-data consent, AI energy cost, job displacement and deepfake accountability — non-commercial, checkable, public.**
 
-Why now: expansion is outrunning accountability. We turn individual experiences into traceable public evidence, so decisions about AI can be examined, debated and appealed. We welcome AI tools; we oppose **unconstrained deployment** that makes people pay the price.
+We welcome AI tools. We oppose unconstrained deployment that makes people pay the price. FAI turns individual experiences into traceable public evidence, so decisions about AI can be examined, debated and appealed.
 
 **Your 30 seconds:** Star this repo → [claim a language](LANGUAGES.md#priority-languages) → [submit one sourced evidence card](.github/ISSUE_TEMPLATE/evidence.md). That is the whole loop.
 
-[Read the manifesto](MANIFESTO.md) · [Browse the evidence](RESEARCH/) · [Join the discussion](https://github.com/FAI-Union/FckAI/discussions)
+[Read the manifesto](MANIFESTO.md) · [Browse the AI ethics evidence index](RESEARCH/README.md) · [Join the discussion](https://github.com/FAI-Union/FckAI/discussions)
 
 ---
 
@@ -27,7 +27,7 @@ This repository is maintained in **English** as the default language. Root files
 
 All other languages are still welcome — no minimum speaker count. See the [full language list](LANGUAGES.md) and [claim one by opening an issue](.github/ISSUE_TEMPLATE/translation.md).
 
-## Four things we care about
+## What our AI ethics evidence covers
 
 1. **Copyright and informed consent in training data** — creators' work should not become model training material without permission.
 2. **Job displacement and the duty to retrain** — the cost of technological substitution should not fall on individuals alone.
@@ -55,6 +55,17 @@ All other languages are still welcome — no minimum speaker count. See the [ful
 | [locales/](locales/) | Community translations |
 | [LANGUAGES.md](LANGUAGES.md) | Translation status and contributor guide |
 | [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) | Issue templates |
+
+## Evidence index
+
+Every card is a checkable unit with an evidence ID, a claim, a source URL, a publication date, an excerpt and caveats. The full, continuously updated index lives in [RESEARCH/README.md](RESEARCH/README.md).
+
+| Area | Search topic | Start here |
+| --- | --- | --- |
+| Training-data consent and copyright | `copyright`, `consent` | [Evidence index](RESEARCH/README.md) |
+| AI energy cost and environmental impact | `energy`, `sustainability` | [EV-2026-001](RESEARCH/EV-2026-001.md) |
+| AI policy and accountability | `ai-policy`, `ai-governance` | [PP-2026-001](POLICY/PP-2026-001.md) |
+| Deepfakes and algorithmic accountability | `deepfakes`, `transparency` | [Evidence index](RESEARCH/README.md) |
 
 ## How to participate
 

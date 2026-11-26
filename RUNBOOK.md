@@ -36,7 +36,7 @@ This is a **cold start**, not an algorithm problem. For an advocacy/archive repo
 | 1.1 | Discussions linked everywhere but disabled | Enable Discussions via API; keep links in README / GOVERNANCE | `has_discussions: true`, no 404 on `/discussions` | ✅ |
 | 1.2 | 75-language table dominated the README first screen | Collapse into 10 priority languages + link to LANGUAGES.md | README first 40 lines contain the value proposition and 30-second path | ✅ |
 | 1.3 | "FckAI" reads as anti-AI at first glance | Put "Human-First AI Accountability" in the first line and repo description | First screen states what we are **for** before what we oppose | ✅ |
-| 1.4 | Pages / social preview / topics / org profile missing | Enable Pages from `/docs`; set topics; upload banner; create org profile README | Landing page live, topics ≥10, preview image set, org profile visible | 🟡 |
+| 1.4 | Pages / social preview / topics / org profile missing | Enable Pages from `/docs`; set topics; upload banner; create org profile README | Landing page live, topics 20/20, preview image set, org profile visible | 🟡 — see [docs/manual-setup.md](docs/manual-setup.md); landing-page images and SEO fixed in code |
 | 1.5 | No protection against bot/low-effort submissions | Two Actions workflows + interaction limits + branch protection | Mock tests 10/10 pass; `existing_users`; protected `main` | ✅ |
 
 ---
@@ -98,7 +98,7 @@ Status: ⬜ create templates and `CHANGELOG.md`.
 - Merge → public thanks + @ the contributor.
 - `good first issue` only for 30-minute tasks: "add a source", "translate one evidence card".
 
-Status: 🟡 automated checks documented in CONTRIBUTING.md; ⬜ SLA + seeded good-first issues.
+Status: 🟡 automated checks documented in CONTRIBUTING.md; 5 seeded `good first issue` items (#3–#7) exist and are verified; ⬜ first-response SLA.
 
 ---
 
@@ -117,7 +117,7 @@ Status: ✅
 - 1280×640 social preview generated from `assets/fai-banner.png`.
 - Pages landing page: manifesto + one hard evidence + participation CTA; all external links point there.
 
-Status: ✅ description/topics/homepage done by API, Pages live at https://fai-union.github.io/FckAI/, `/docs/index.html` in repo. ⏸ **Last manual step:** `assets/social-preview.png` (1280×640) is ready — upload it at https://github.com/FAI-Union/FckAI/settings under **Social preview → Upload image**. GitHub exposes no REST endpoint for this, so a human must click it once.
+Status: ✅ homepage and Pages live; `/docs/index.html` now has canonical, OG/Twitter, hreflang, JSON-LD, working logo path, `robots.txt` and `sitemap.xml`; a translated `/docs/zh-CN/` landing page is live. 🟡 description and topics (18/20) still need an org admin — exact values and commands are in [docs/manual-setup.md](docs/manual-setup.md). ⏸ **Manual step:** upload `assets/social-preview.png` (1280×640) at https://github.com/FAI-Union/FckAI/settings under **Social preview → Upload image**; GitHub exposes no REST endpoint for this.
 
 ### 3.3 Real cold start
 
@@ -131,13 +131,13 @@ Channels: Hacker News, Reddit r/technology / r/opensource, Lobste.rs, V2EX, 知�
 
 Each channel gets: **one concrete pain + one verifiable evidence + one immediate action**. Never paste the same copy everywhere.
 
-Status: ⬜ owner; use the channel matrix in §4.
+Status: 🟡 channel-specific drafts are ready in [CAMPAIGNS/DISTRIBUTION.md](CAMPAIGNS/DISTRIBUTION.md), including HN, Reddit, Lobste.rs, V2EX/知乎, newsletter, course and awesome-list outreach. Nothing has been posted — posting remains a human action.
 
 ### 3.5 Citable artefacts
 
 Turn evidence into shareable cards / data tables (e.g. "AI energy disclosure tracker"). Publish a monthly brief. Other people citing our data is the most durable star source for a content repo.
 
-Status: ⬜ template created; first artefact pending real evidence.
+Status: ✅ first citable artefact is live — 21 sourced evidence cards with a canonical index at [RESEARCH/README.md](RESEARCH/README.md). Monthly brief still ⬜.
 
 ### 3.6 Newsjacking with discipline
 
@@ -178,6 +178,8 @@ Record in `CHANGELOG.md`:
 
 Conversion (visit → star → contribute) matters more than a single-day star spike.
 
+Search ranking is measured separately with [scripts/track_search_rank.py](scripts/track_search_rank.py) against the [2026-11-26 baseline](docs/search-baseline.md). Run it weekly, save the output as `docs/rank-YYYY-MM-DD.md`, and record only real movements — the head terms `AI accountability` and `AI ethics` are not realistic targets until we have genuine stars and external citations.
+
 ---
 
 ## 6. Execution log
@@ -188,3 +190,4 @@ Conversion (visit → star → contribute) matters more than a single-day star s
 | 2026-11-26 | Bot triage + content validation workflows, CODEOWNERS | `de22907`, 10/10 mock pass |
 | 2026-11-26 | Discussions, signoff, Actions write, interaction limits, branch protection | verified via REST |
 | 2026-11-26 | Runbook created; assets, README, metadata, templates applied | this commit |
+| 2026-11-26 | P0/P1 discoverability pass: keyword-first README, Pages SEO + zh-CN landing page, 20 new sourced evidence cards, distribution kit, rank tracker, manual setup checklist | files in `RESEARCH/`, `docs/`, `scripts/`, `CAMPAIGNS/`; remote metadata still admin-gated |

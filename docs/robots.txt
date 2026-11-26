@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fai-union.github.io/FckAI/sitemap.xml

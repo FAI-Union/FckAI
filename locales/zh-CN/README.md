@@ -4,13 +4,13 @@
 
 # FAI · 人类优先的 AI 问责
 
-**我们是一个开放、非商业的社区，为 AI 的真实代价建立可核查的公开档案。**
+**开源的 AI 问责证据库：训练数据同意权、就业冲击、AI 能源成本与深度伪造问责，每条主张都有来源、可核查、非商业。**
 
-为什么是现在：技术扩张正在跑赢问责。我们把个体处境转化为可追溯的证据，让影响人的决策能够被审视、讨论与申诉。我们欢迎 AI 工具；我们反对的是让人承担代价的**不受约束的部署**。
+我们欢迎 AI 工具；反对的是让人承担代价的不受约束部署。FAI 把个体处境转化为可追溯的公开证据，让影响人的决策能够被审视、讨论与申诉。
 
 **你的 30 秒：** Star 本仓库 → [认领一种语言](../../LANGUAGES.md#priority-languages优先语言) → [提交一条带来源的证据卡](../../.github/ISSUE_TEMPLATE/evidence.md)。整个循环就这么简单。
 
-[阅读宣言](MANIFESTO.md) · [浏览证据库](../../RESEARCH/) · [加入讨论](https://github.com/FAI-Union/FckAI/discussions)
+[阅读宣言](MANIFESTO.md) · [浏览 21 条证据卡索引](../../RESEARCH/README.md) · [加入讨论](https://github.com/FAI-Union/FckAI/discussions)
 
 ---
 
@@ -26,6 +26,17 @@
 **正在优先建设：** Español (`es`) · Français (`fr`) · Deutsch (`de`) · 日本語 (`ja`) · 한국어 (`ko`) · Português (Brasil) (`pt-BR`) · العربية (`ar`) · हिन्दी (`hi`) · Русский (`ru`) · 繁體中文 (`zh-TW`)
 
 其他语言同样欢迎，无使用人数门槛。见[完整语言列表](../../LANGUAGES.md)，并[开 issue 认领](../../.github/ISSUE_TEMPLATE/translation.md)。
+
+## AI 伦理证据覆盖的内容
+
+每条证据卡都包含证据 ID、主张、原始来源、发布日期、原文摘录和局限说明；完整索引见 [RESEARCH/README.md](../../RESEARCH/README.md)。
+
+| 领域 | 证据卡 |
+| --- | --- |
+| 训练数据同意与版权 | [证据索引](../../RESEARCH/README.md) |
+| 就业替代与再培训 | [证据索引](../../RESEARCH/README.md) |
+| AI 能源成本与环境影响 | [EV-2026-001](../../RESEARCH/EV-2026-001.md) |
+| 深度伪造与算法问责 | [证据索引](../../RESEARCH/README.md) |
 
 ## 我们关注的四件事
 
