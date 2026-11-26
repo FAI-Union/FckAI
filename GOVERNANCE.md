@@ -16,6 +16,14 @@ This document defines how this alliance makes decisions, who decides, and how me
 | Maintainer | Nominated by an existing maintainer, approved by consensus | Merge PRs, apply labels, review content |
 | Coordinator | Rotates among maintainers, three-month term | Chair discussions, summarize consensus, publish official documents |
 
+These roles map to GitHub teams in the `FAI-Union` organization:
+
+- `core` — repository admins and CODEOWNERS target; final escalation.
+- `maintainers` — merge PRs, apply labels, review content.
+- `translators` — claim and review files under `locales/`.
+
+A role is not effective until the corresponding team membership is granted. Promote by adding the member to the team and recording it in a Discussion.
+
 ## Decision process
 
 1. Any member may propose a motion in Discussions.

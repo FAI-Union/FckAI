@@ -48,3 +48,24 @@ Two GitHub Actions workflows screen every new issue and pull request:
 If a check is wrong, reply in the thread and mention a maintainer. Do not open a duplicate submission.
 
 两个 GitHub Actions 工作流会对新 issue 和 PR 做初筛：机器账号直接关闭；新账号、无来源链接仅打标签，**不会**由机器人直接拒绝，一切由维护者人工决定。若判断有误请在原帖回复并 @ 维护者，不要重复提交。
+
+## Maintainer response standard / 维护者响应标准
+
+- **First response within 72 hours.** A short acknowledgement is enough; silence is not.
+- Every PR receives an explicit next step: merge, revise with named items, or decline with a reason and a path to resubmit.
+- On merge, thank the contributor publicly and @ them. Every contributor brings their own network.
+- `good first issue` is reserved for ~30-minute tasks: add a missing source, translate one evidence card, fix a broken link.
+
+## Evidence chain / 证据链
+
+Three layers, one direction:
+
+1. `RESEARCH/EV-<year>-<number>.md` — claim, source URL, publication date, excerpt, caveats, verifier, last-reviewed date.
+2. `POLICY/PP-<year>-<number>.md` — every proposal cites at least one evidence ID.
+3. `CAMPAIGNS/<YYYY-MM>-<name>.md` — every action links to the Discussion or Issue that authorised it. See `CAMPAIGNS/TEMPLATE.md`.
+
+Unsourced claims are labelled `needs-source` and are not used as a basis for decisions (GOVERNANCE.md).
+
+## Cadence / 节奏
+
+Weekly: one sourced evidence card. Every two weeks: one Discussion on a live policy question. Monthly: one brief, a `CHANGELOG.md` entry, and a metrics review. Consistency is our trust signal.

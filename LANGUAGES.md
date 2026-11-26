@@ -8,16 +8,36 @@ The default language of this repository is **English**. All content in the root 
 
 Legend / 图例: ✅ complete 完成 · 🟡 partial 部分 · ⏳ in progress 进行中 · — not started 未开始
 
-| Language 语言 | Tag | README | MANIFESTO | GOVERNANCE | CODE_OF_CONDUCT | Maintainer |
-| --- | --- | --- | --- | --- | --- | --- |
-| English (default) | `en` | ✅ | ✅ | ✅ | ✅ | core team |
-| 简体中文 | `zh-CN` | ✅ | ✅ | ✅ | ✅ | community |
+| Language 语言 | Tag | README | MANIFESTO | GOVERNANCE | CODE_OF_CONDUCT | Maintainer | Last verified |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| English (default) | `en` | ✅ | ✅ | ✅ | ✅ | core team | 2026-11-26 |
+| 简体中文 | `zh-CN` | ✅ | ✅ | ✅ | ✅ | community | 2026-11-26 |
+
+## Priority languages / 优先语言
+
+We actively recruit and review these ten first. Claim one by opening an `[i18n]` issue, then follow the [translation guide](CONTRIBUTING.md#translating).
+
+我们优先招募并审核以下十种语言。开一个 `[i18n]` issue 认领，然后遵循[翻译指南](CONTRIBUTING.md#translating)。
+
+| Language | Tag | Language | Tag |
+| --- | --- | --- | --- |
+| Español (Spanish) | `es` | Français (French) | `fr` |
+| Deutsch (German) | `de` | 日本語 (Japanese) | `ja` |
+| 한국어 (Korean) | `ko` | Português (Brasil) | `pt-BR` |
+| العربية (Arabic) | `ar` | हिन्दी (Hindi) | `hi` |
+| Русский (Russian) | `ru` | 繁體中文 (Traditional Chinese) | `zh-TW` |
+
+Once claimed, add the language to the status table above with `⏳` and the maintainer's handle. Update **Last verified** whenever a translation is reviewed against the English original.
+
+认领后请把语言加入上方状态表，标记 `⏳` 并写上维护者 ID。每次对照英文原文复核译文后，更新 **Last verified** 日期。
 
 ## Wanted languages / 待翻译语言
 
-The major world languages below have no translation yet. Any language is welcome — there is no minimum speaker count. Claim one by opening a `[i18n]` issue, then follow the [translation guide](CONTRIBUTING.md#translating).
+Every other major world language is equally welcome — there is no minimum speaker count. We do not actively allocate maintainer time to this list yet, but a claim is never refused.
 
-以下世界主要语言尚无译文。欢迎任何语言，无使用人数门槛。开一个 `[i18n]` issue 认领，然后遵循[翻译指南](CONTRIBUTING.md#translating)。
+其他世界主要语言同样欢迎，无使用人数门槛。我们暂不为下表分配维护精力，但认领绝不被拒绝。
+
+以下世界主要语言尚无译文。开一个 `[i18n]` issue 认领，然后遵循[翻译指南](CONTRIBUTING.md#translating)。
 
 | Language | Tag | Language | Tag | Language | Tag |
 | --- | --- | --- | --- | --- | --- |
