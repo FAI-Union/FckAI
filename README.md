@@ -21,31 +21,31 @@ All major world languages are welcome — there is no minimum speaker count. The
 
 | Language | Tag | Language | Tag | Language | Tag |
 | --- | --- | --- | --- | --- | --- |
-| हिन्दी (Hindi) | `hi` | العربية (Arabic) | `ar` | Español (Spanish) | `es` |
-| Français (French) | `fr` | Português (Portuguese) | `pt` | বাংলা (Bengali) | `bn` |
-| Русский (Russian) | `ru` | 日本語 (Japanese) | `ja` | ਪੰਜਾਬੀ (Punjabi) | `pa` |
-| Deutsch (German) | `de` | 한국어 (Korean) | `ko` | Italiano (Italian) | `it` |
-| Türkçe (Turkish) | `tr` | Tiếng Việt (Vietnamese) | `vi` | Bahasa Indonesia (Indonesian) | `id` |
-| ไทย (Thai) | `th` | اردو (Urdu) | `ur` | Polski (Polish) | `pl` |
-| Українська (Ukrainian) | `uk` | Nederlands (Dutch) | `nl` | فارسی (Persian) | `fa` |
-| മലയാളം (Malayalam) | `ml` | தமிழ் (Tamil) | `ta` | తెలుగు (Telugu) | `te` |
-| मराठी (Marathi) | `mr` | ગુજરાતી (Gujarati) | `gu` | ಕನ್ನಡ (Kannada) | `kn` |
-| Bahasa Melayu (Malay) | `ms` | Filipino (Tagalog) | `fil` | Kiswahili (Swahili) | `sw` |
-| עברית (Hebrew) | `he` | Ελληνικά (Greek) | `el` | Čeština (Czech) | `cs` |
-| Svenska (Swedish) | `sv` | Magyar (Hungarian) | `hu` | Română (Romanian) | `ro` |
-| Dansk (Danish) | `da` | Suomi (Finnish) | `fi` | Norsk (Norwegian) | `no` |
-| Српски (Serbian) | `sr` | Hrvatski (Croatian) | `hr` | Български (Bulgarian) | `bg` |
-| Slovenčina (Slovak) | `sk` | Slovenščina (Slovenian) | `sl` | Català (Catalan) | `ca` |
-| Afrikaans | `af` | አማርኛ (Amharic) | `am` | Hausa | `ha` |
-| Yorùbá (Yoruba) | `yo` | Igbo | `ig` | isiZulu (Zulu) | `zu` |
-| Soomaali (Somali) | `so` | नेपाली (Nepali) | `ne` | සිංහල (Sinhala) | `si` |
-| မြန်မာ (Burmese) | `my` | ខ្មែរ (Khmer) | `km` | ລາວ (Lao) | `lo` |
-| Монгол (Mongolian) | `mn` | Oʻzbekcha (Uzbek) | `uz` | Қазақша (Kazakh) | `kk` |
-| Azərbaycanca (Azerbaijani) | `az` | ქართული (Georgian) | `ka` | Հայերեն (Armenian) | `hy` |
-| Shqip (Albanian) | `sq` | Македонски (Macedonian) | `mk` | Bosanski (Bosnian) | `bs` |
-| Lietuvių (Lithuanian) | `lt` | Latviešu (Latvian) | `lv` | Eesti (Estonian) | `et` |
-| Íslenska (Icelandic) | `is` | Gaeilge (Irish) | `ga` | Cymraeg (Welsh) | `cy` |
-| Euskara (Basque) | `eu` | Galego (Galician) | `gl` | 繁體中文 (Traditional Chinese) | `zh-TW` |
+| Afrikaans | `af` | አማርኛ (Amharic) | `am` | العربية (Arabic) | `ar` |
+| Azərbaycanca (Azerbaijani) | `az` | Български (Bulgarian) | `bg` | বাংলা (Bengali) | `bn` |
+| Bosanski (Bosnian) | `bs` | Català (Catalan) | `ca` | Čeština (Czech) | `cs` |
+| Cymraeg (Welsh) | `cy` | Dansk (Danish) | `da` | Deutsch (German) | `de` |
+| Ελληνικά (Greek) | `el` | Español (Spanish) | `es` | Eesti (Estonian) | `et` |
+| Euskara (Basque) | `eu` | فارسی (Persian) | `fa` | Suomi (Finnish) | `fi` |
+| Filipino (Tagalog) | `fil` | Français (French) | `fr` | Gaeilge (Irish) | `ga` |
+| Galego (Galician) | `gl` | ગુજરાતી (Gujarati) | `gu` | Hausa | `ha` |
+| עברית (Hebrew) | `he` | हिन्दी (Hindi) | `hi` | Hrvatski (Croatian) | `hr` |
+| Magyar (Hungarian) | `hu` | Հայերեն (Armenian) | `hy` | Bahasa Indonesia (Indonesian) | `id` |
+| Igbo | `ig` | Íslenska (Icelandic) | `is` | Italiano (Italian) | `it` |
+| 日本語 (Japanese) | `ja` | ქართული (Georgian) | `ka` | Қазақша (Kazakh) | `kk` |
+| ខ្មែរ (Khmer) | `km` | ಕನ್ನಡ (Kannada) | `kn` | 한국어 (Korean) | `ko` |
+| ລາວ (Lao) | `lo` | Lietuvių (Lithuanian) | `lt` | Latviešu (Latvian) | `lv` |
+| Македонски (Macedonian) | `mk` | മലയാളം (Malayalam) | `ml` | Монгол (Mongolian) | `mn` |
+| मराठी (Marathi) | `mr` | Bahasa Melayu (Malay) | `ms` | မြန်မာ (Burmese) | `my` |
+| नेपाली (Nepali) | `ne` | Nederlands (Dutch) | `nl` | Norsk (Norwegian) | `no` |
+| ਪੰਜਾਬੀ (Punjabi) | `pa` | Polski (Polish) | `pl` | Português (Portuguese) | `pt` |
+| Română (Romanian) | `ro` | Русский (Russian) | `ru` | සිංහල (Sinhala) | `si` |
+| Slovenčina (Slovak) | `sk` | Slovenščina (Slovenian) | `sl` | Soomaali (Somali) | `so` |
+| Shqip (Albanian) | `sq` | Српски (Serbian) | `sr` | Svenska (Swedish) | `sv` |
+| Kiswahili (Swahili) | `sw` | தமிழ் (Tamil) | `ta` | తెలుగు (Telugu) | `te` |
+| ไทย (Thai) | `th` | Türkçe (Turkish) | `tr` | Українська (Ukrainian) | `uk` |
+| اردو (Urdu) | `ur` | Oʻzbekcha (Uzbek) | `uz` | Tiếng Việt (Vietnamese) | `vi` |
+| Yorùbá (Yoruba) | `yo` | 繁體中文 (Traditional Chinese) | `zh-TW` | isiZulu (Zulu) | `zu` |
 
 Don't see your language? [Contribute a translation](CONTRIBUTING.md#translating) — every language is welcome.
 
