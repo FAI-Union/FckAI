@@ -117,7 +117,7 @@ Status: ✅
 - 1280×640 social preview generated from `assets/fai-banner.png`.
 - Pages landing page: manifesto + one hard evidence + participation CTA; all external links point there.
 
-Status: 🟡 description/topics done by API; ⏸ social preview must be uploaded in the web UI; Pages from `/docs`.
+Status: ✅ description/topics/homepage done by API, Pages live at https://fai-union.github.io/FckAI/, `/docs/index.html` in repo. ⏸ **Last manual step:** `assets/social-preview.png` (1280×640) is ready — upload it at https://github.com/FAI-Union/FckAI/settings under **Social preview → Upload image**. GitHub exposes no REST endpoint for this, so a human must click it once.
 
 ### 3.3 Real cold start
 

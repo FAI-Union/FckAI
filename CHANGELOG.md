@@ -10,7 +10,9 @@ Monthly review record for the FAI project. See [RUNBOOK.md](RUNBOOK.md#5-weekly-
 - Published RUNBOOK.md; added FAI logo, banner, avatar and favicons.
 - Onboarded first sourced evidence card `EV-2026-001` (IEA energy projection) and first policy draft `PP-2026-001`.
 - Reframed the README around "Human-First AI Accountability" with a 30-second participation path; collapsed 75-language table to 10 priority languages.
-- Created GitHub Pages landing page at `/docs`.
+- Created GitHub Pages landing page at `/docs` (https://fai-union.github.io/FckAI/).
+- Created `core`, `maintainers`, `translators` teams; set 18 topics and a searchable description; seeded 5 language-claim good-first issues (#3–#7).
+- Fixed the over-broad ruleset that had blocked all branch creation; it now protects only `main`, with PR merges allowed.
 
 ### Metrics snapshot (2026-11-26)
 
