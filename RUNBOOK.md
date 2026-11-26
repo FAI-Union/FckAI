@@ -110,6 +110,26 @@ Status: 🟡 automated checks documented in CONTRIBUTING.md; 5 seeded `good firs
 
 Status: ✅ categories created, bot and automation live; ⬜ consider grouping the ten categories under one Discussion section.
 
+### 2.7 Repository AI toolkit (MCP + skills)
+
+- `ai-tools/` holds a standard-library Python MCP server (17 tools), an equivalent CLI, seven WorkBuddy skills and a test suite. The canonical sources are tracked; local MCP registration and installed skills are generated copies (`python ai-tools/install.py`).
+- Coverage: evidence cards and index, EV → POLICY/CAMPAIGNS chain, relative links, translations, RUNBOOK backlog, rank snapshots, news-bot state/dry-run and PR preflight. Tools are read-only or produce in-memory drafts; no tool reads or prints the news-bot token.
+- Red lines are unchanged: source verification, publication, admin-only GitHub settings and PR merges stay human actions. Bot/new-account triage only labels; humans are never auto-rejected.
+- Acceptance test: `python -m unittest discover -s ai-tools/tests -v` passes (10 tests, including an MCP stdio handshake); `python ai-tools/install.py --dry-run` is idempotent; `validate-links` reports zero broken relative links.
+
+Status: ✅ implemented 2026-11-26; ⬜ each contributor registers the `fai` MCP server in their own client after restart.
+
+### 2.8 Security hardening for automation and AI tools
+
+- `ai-tools/` is versioned in git; both workflows pin `actions/github-script` to commit `f28e40c7f34bde8b3046d885e986cb6290c5673b` (v7). `pull_request_target` is split into a PR-only job with no checkout and an explicit "never execute PR code" guard; `issues` and PR write scopes are separated.
+- The news bot sanitises every untrusted RSS field before publishing: control characters and newlines are removed, fields are rendered as inline code/autolinks, non-http(s) links are rejected, DTD/entity declarations and RSS responses over 5 MiB are refused. Duplicate scanning covers up to 2,000 recent Discussions.
+- The PAT file is user-only (Windows ACL tightened 2026-11-26; POSIX mode 0600 enforced at runtime). Logs and tool output redact token patterns plus live `GH_PAT`/`GITHUB_TOKEN` values.
+- Toolkit file reads skip symlinks and paths outside `FAI_REPO_ROOT`; link lint rejects absolute/escaping/symlink targets. MCP input is validated against `inputSchema` with numeric bounds; `install.py` uses `sys.executable` and atomically replaces `mcp.json`.
+- `content-validation.yml` reads the full blob of newly added Markdown files so oversized/truncated patches cannot bypass the 12-link threshold.
+- Acceptance test: `python -m unittest discover -s ai-tools/tests -v` passes **15 tests** (including frontmatter-injection, path-escape, redaction, RSS-sanitisation and MCP-bound regressions); `python scripts/ai-news/news_bot.py dry-run --per-run 1` publishes nothing.
+
+Status: ✅ implemented 2026-11-26; ⬜ re-run `install.py` after merging so contributors pick up the absolute-interpreter MCP entry.
+
 ---
 
 ## 3. Growth: cold start and distribution
@@ -203,3 +223,4 @@ Search ranking is measured separately with [scripts/track_search_rank.py](script
 | 2026-11-26 | P0/P1 discoverability pass: keyword-first README, Pages SEO + zh-CN landing page, 20 new sourced evidence cards, distribution kit, rank tracker, manual setup checklist | files in `RESEARCH/`, `docs/`, `scripts/`, `CAMPAIGNS/`; remote metadata still admin-gated |
 | 2026-11-26 | Wave 1 publication pack prepared; newsletter copy corrected to cite the demand card (EV-2026-001) instead of the emissions card | `CAMPAIGNS/WAVE-1.md`; not posted |
 | 2026-11-26 | Ten AI-company Discussion categories created in UI; hourly news bot + dedupe state + WorkBuddy automation wired; PAT upgraded to Discussions read/write | `scripts/ai-news/`, discussions #8–#10 and #12 |
+| 2026-11-26 | Repository AI toolkit: MCP server + CLI + 7 skills + tests, installed locally; fixed one broken rank-report link and three missing `Used by` backlinks found by the new checks | `ai-tools/`, `RESEARCH/` EV-001/008/015, `docs/rank-2026-11-26-after.md` |

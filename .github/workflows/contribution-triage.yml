@@ -3,6 +3,10 @@ name: Contribution triage
 # Screen every new issue and PR before a maintainer spends time on it.
 # Bot accounts are closed automatically; young/empty accounts and
 # submissions without a source link are only flagged for human review.
+#
+# SECURITY: pull_request_target runs with a write token in the base-repo context.
+# Never add actions/checkout with the PR ref (or any step that executes PR code)
+# to this workflow. Keep the token write scope split by event and pin actions.
 
 on:
   issues:
@@ -12,34 +16,24 @@ on:
 
 permissions:
   contents: read
-  issues: write
-  pull-requests: write
 
 jobs:
-  triage:
-    name: Classify new submission
+  triage_issue:
+    name: Classify new issue
+    if: github.event_name == 'issues'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Ensure triage labels exist
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             const labels = [
-              {
-                name: 'needs-review',
-                color: 'd876e3',
-                description: 'Awaiting maintainer review / 等待维护者审核'
-              },
-              {
-                name: 'suspected-bot',
-                color: 'b60205',
-                description: 'Automated or suspicious account / 疑似机器账号'
-              },
-              {
-                name: 'needs-source',
-                color: 'fbca04',
-                description: 'Claim without a verifiable source / 缺少可核实来源'
-              }
+              { name: 'needs-review', color: 'd876e3', description: 'Awaiting maintainer review / 等待维护者审核' },
+              { name: 'suspected-bot', color: 'b60205', description: 'Automated or suspicious account / 疑似机器账号' },
+              { name: 'needs-source', color: 'fbca04', description: 'Claim without a verifiable source / 缺少可核实来源' }
             ];
             for (const label of labels) {
               try {
@@ -58,11 +52,10 @@ jobs:
             }
 
       - name: Triage author and description
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
-            const isPR = context.eventName === 'pull_request_target';
-            const item = isPR ? context.payload.pull_request : context.payload.issue;
+            const item = context.payload.issue;
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const login = item.user?.login ?? 'unknown';
@@ -109,9 +102,122 @@ jobs:
               labels: uniqueLabels
             });
 
-            const kind = isPR ? 'pull request' : 'issue';
             const note = [
-              `Thanks for the contribution. Automated triage flagged this ${kind} for:`,
+              'Thanks for the contribution. Automated triage flagged this issue for:',
+              ...reasons.map((reason) => `- ${reason}`),
+              '',
+              'This is **not** a rejection. A maintainer will review it and remove the label if the submission is genuine.',
+              'If this is a false positive, reply here and mention a maintainer — please do not open a duplicate.',
+              '',
+              '---',
+              '感谢贡献。自动初筛标记了此项：',
+              ...reasons.map((reason) => `- ${reason}`),
+              '这**不是**拒绝，维护者会人工复核；如属误判请在此回复并 @ 维护者，请勿重复提交。'
+            ].join('\n');
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: item.number,
+              body: note
+            });
+
+            if (labels.includes('suspected-bot')) {
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number: item.number,
+                state: 'closed',
+                state_reason: 'not_planned'
+              });
+            }
+
+  triage_pr:
+    name: Classify new pull request
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Ensure triage labels exist
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const labels = [
+              { name: 'needs-review', color: 'd876e3', description: 'Awaiting maintainer review / 等待维护者审核' },
+              { name: 'suspected-bot', color: 'b60205', description: 'Automated or suspicious account / 疑似机器账号' },
+              { name: 'needs-source', color: 'fbca04', description: 'Claim without a verifiable source / 缺少可核实来源' }
+            ];
+            for (const label of labels) {
+              try {
+                await github.rest.issues.getLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: label.name
+                });
+              } catch (error) {
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ...label
+                });
+              }
+            }
+
+      - name: Triage author and description
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const item = context.payload.pull_request;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const login = item.user?.login ?? 'unknown';
+            const labels = [];
+            const reasons = [];
+
+            if (item.user?.type === 'Bot' || /\[bot\]$/i.test(login)) {
+              labels.push('suspected-bot');
+              reasons.push('automated account / 机器账号');
+            }
+
+            let profile;
+            try {
+              profile = (await github.rest.users.getByUsername({ username: login })).data;
+            } catch (error) {
+              core.warning(`Could not inspect @${login}: ${error.message}`);
+            }
+            if (profile) {
+              const ageDays =
+                (Date.now() - new Date(profile.created_at).getTime()) / 86400000;
+              if (ageDays < 7 && profile.followers === 0 && profile.public_repos === 0) {
+                labels.push('needs-review');
+                reasons.push(
+                  'account younger than 7 days with no followers or public repos / 账号过新且无关注与公开仓库'
+                );
+              }
+            }
+
+            const body = item.body ?? '';
+            const title = item.title ?? '';
+            if (!/https?:\/\//i.test(body) && /evidence|proposal|i18n/i.test(title)) {
+              labels.push('needs-review');
+              labels.push('needs-source');
+              reasons.push('no source link in the description / 描述中没有来源链接');
+            }
+
+            if (reasons.length === 0) return;
+
+            const uniqueLabels = [...new Set(labels)];
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number: item.number,
+              labels: uniqueLabels
+            });
+
+            const note = [
+              'Thanks for the contribution. Automated triage flagged this pull request for:',
               ...reasons.map((reason) => `- ${reason}`),
               '',
               'This is **not** a rejection. A maintainer will review it and remove the label if the submission is genuine.',

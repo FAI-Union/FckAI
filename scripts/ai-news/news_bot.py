@@ -28,6 +28,7 @@ import html
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 import urllib.error
@@ -55,9 +56,59 @@ TRACKING_PARAMS = {
     "fbclid", "gclid", "mc_cid", "mc_eid", "ref", "ref_src", "spm", "from",
 }
 
+SECRET_RE = re.compile(
+    r"(?:github_pat_[A-Za-z0-9_]{20,}|gh[pousr]_[A-Za-z0-9]{20,}"
+    r"|AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{35}|xox[baprs]-[A-Za-z0-9-]{10,})"
+)
+SENSITIVE_ENV = ("GH_PAT", "GITHUB_TOKEN")
+CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
+MAX_RSS_BYTES = 5 * 1024 * 1024
+MAX_TITLE = 240
+MAX_SOURCE = 120
+MAX_URL = 500
+MAX_DATE = 64
+
+
+def redact(text: object) -> str:
+    """Strip token-looking strings and live environment secrets from logs."""
+    result = SECRET_RE.sub("[REDACTED]", str(text))
+    for name in SENSITIVE_ENV:
+        value = os.environ.get(name, "").strip()
+        if len(value) >= 8:
+            result = result.replace(value, "[REDACTED]")
+    return result
+
+
+def clean_field(value: object, limit: int) -> str:
+    """Make an untrusted RSS field safe for a single-line Markdown/GraphQL field."""
+    text = html.unescape(str(value or ""))
+    text = CONTROL_RE.sub(" ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text[:limit]
+
+
+def md_inline(value: object, limit: int) -> str:
+    """Render untrusted text as inline code so Markdown syntax cannot execute."""
+    text = clean_field(value, limit).replace("\\", "\\\\").replace("`", "'")
+    return f"`{text}`"
+
+
+def safe_link(value: object) -> str:
+    """Return a link that is safe to place inside <...> Markdown autolinks."""
+    text = clean_field(value, MAX_URL)
+    try:
+        parts = urllib.parse.urlsplit(text)
+    except ValueError:
+        return ""
+    if parts.scheme.lower() not in {"http", "https"} or not parts.netloc:
+        return ""
+    if any(c in text for c in "<> \"'"):
+        return ""
+    return text
+
 
 def log(msg: str) -> None:
-    line = f"{datetime.now(timezone.utc).isoformat(timespec='seconds')} {msg}"
+    line = f"{datetime.now(timezone.utc).isoformat(timespec='seconds')} {redact(msg)}"
     print(line, flush=True)
     try:
         STATE_DIR.mkdir(parents=True, exist_ok=True)
@@ -86,9 +137,39 @@ def save_state(state: dict) -> None:
     tmp.replace(STATE_FILE)
 
 
+BROAD_ACL_RE = re.compile(
+    r"(?:Everyone|Authenticated Users|BUILTIN\\Users|所有人|经过身份验证的用户)"
+    r"\s*:\([^)]*\)",
+    re.IGNORECASE,
+)
+
+
+def _has_broad_windows_acl(path: Path) -> bool:
+    """Best-effort check for inherited broad grants on Windows via icacls."""
+    try:
+        proc = subprocess.run(
+            ["icacls", str(path)],
+            capture_output=True,
+            text=True,
+            errors="replace",
+            timeout=10,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return False
+    return bool(BROAD_ACL_RE.search(proc.stdout or ""))
+
+
 def get_token() -> str:
     token = os.environ.get("GH_PAT", "").strip()
     if not token and PAT_FILE.exists():
+        if os.name == "posix":
+            mode = PAT_FILE.stat().st_mode & 0o777
+            if mode & 0o077:
+                raise RuntimeError(
+                    f"token file {PAT_FILE} is group/world accessible; run: chmod 600 {PAT_FILE}"
+                )
+        elif _has_broad_windows_acl(PAT_FILE):
+            log("warning: token file has broad filesystem permissions; tighten its ACL")
         token = PAT_FILE.read_text(encoding="utf-8").strip()
     return token
 
@@ -108,7 +189,7 @@ def graphql(query: str, variables: dict, token: str, retries: int = 3) -> dict:
                 result = json.loads(resp.read().decode("utf-8"))
             if result.get("errors"):
                 messages = "; ".join(e.get("message", "unknown") for e in result["errors"])
-                raise RuntimeError(f"GraphQL error: {messages}")
+                raise RuntimeError(f"GraphQL error: {redact(messages)}")
             return result.get("data", {})
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", "replace")[:300]
@@ -163,20 +244,29 @@ def verify_categories(token: str) -> int:
 
 
 def existing_discussion_titles(token: str) -> set[str]:
-    data = graphql(
-        """query($owner:String!,$name:String!){
-          repository(owner:$owner,name:$name){
-            discussions(first:100,orderBy:{field:CREATED_AT,direction:DESC}){
-              nodes { title category { name } }
-            }
-          }
-        }""",
-        {"owner": REPO_OWNER, "name": REPO_NAME},
-        token,
-    )
-    titles = set()
-    for node in data["repository"]["discussions"]["nodes"]:
-        titles.add(normalize_title(node["title"]))
+    query = """query($owner:String!,$name:String!,$after:String){
+      repository(owner:$owner,name:$name){
+        discussions(first:100,after:$after,orderBy:{field:CREATED_AT,direction:DESC}){
+          pageInfo { hasNextPage endCursor }
+          nodes { title category { name } }
+        }
+      }
+    }"""
+    titles: set[str] = set()
+    cursor: str | None = None
+    for _ in range(20):  # at most 2,000 recent discussions
+        data = graphql(
+            query,
+            {"owner": REPO_OWNER, "name": REPO_NAME, "after": cursor},
+            token,
+        )
+        discussions = data["repository"]["discussions"]
+        for node in discussions["nodes"]:
+            titles.add(normalize_title(node["title"]))
+        page_info = discussions["pageInfo"]
+        if not page_info["hasNextPage"]:
+            break
+        cursor = page_info["endCursor"]
     return titles
 
 
@@ -211,7 +301,20 @@ def fetch_rss(url: str, attempts: int = 3) -> ET.Element | None:
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
             with urllib.request.urlopen(req, timeout=20) as resp:
-                return ET.fromstring(resp.read())
+                chunks: list[bytes] = []
+                total = 0
+                while True:
+                    chunk = resp.read(65536)
+                    if not chunk:
+                        break
+                    total += len(chunk)
+                    if total > MAX_RSS_BYTES:
+                        raise ValueError(f"RSS response exceeds {MAX_RSS_BYTES} bytes")
+                    chunks.append(chunk)
+                data = b"".join(chunks)
+                if re.search(rb"<!DOCTYPE|<!ENTITY", data[:8192], re.IGNORECASE):
+                    raise ValueError("RSS feed contains DTD/entity declarations")
+                return ET.fromstring(data)
         except urllib.error.HTTPError as exc:
             if exc.code in (429, 500, 502, 503, 504) and attempt < attempts - 1:
                 time.sleep(1.5 * (attempt + 1))
@@ -243,8 +346,8 @@ def original_url(link: str) -> str:
 def parse_rss(root: ET.Element, company: dict, cutoff: datetime) -> list[dict]:
     items: list[dict] = []
     for element in root.findall("./channel/item"):
-        title = html.unescape((element.findtext("title") or "").strip())
-        link = original_url((element.findtext("link") or "").strip())
+        title = clean_field(element.findtext("title") or "", MAX_TITLE)
+        link = safe_link(original_url((element.findtext("link") or "").strip()))
         if not title or not link:
             continue
         pub_raw = element.findtext("pubDate") or ""
@@ -256,18 +359,18 @@ def parse_rss(root: ET.Element, company: dict, cutoff: datetime) -> list[dict]:
                 continue
             published_str = published.astimezone(timezone.utc).isoformat(timespec="seconds")
         except Exception:
-            published_str = pub_raw
+            published_str = clean_field(pub_raw, MAX_DATE)
         source_node = element.find("source")
-        source = (source_node.text or "").strip() if source_node is not None else ""
+        source = clean_field(source_node.text or "", MAX_SOURCE) if source_node is not None else ""
         if not source:
             for child in element:
                 if child.tag.endswith("Source") and child.text:
-                    source = child.text.strip()
+                    source = clean_field(child.text, MAX_SOURCE)
                     break
         if source and title.endswith(" - " + source):
-            title = title[: -(len(source) + 3)].strip()
+            title = clean_field(title[: -(len(source) + 3)], MAX_TITLE)
         items.append({
-            "company": company["category"],
+            "company": clean_field(company["category"], MAX_SOURCE),
             "company_key": company["key"],
             "title": title,
             "url": link,
@@ -366,12 +469,13 @@ def select_items(
 
 
 def discussion_body(item: dict) -> str:
+    link = safe_link(item.get("url", ""))
     return (
-        f"**Automated news digest — {html.escape(item['company'])}**\n\n"
-        f"- **Headline:** {item['title']}\n"
-        f"- **Source:** {item['source']}\n"
-        f"- **Published:** {item['published']}\n"
-        f"- **Original link:** {item['url']}\n\n"
+        f"**Automated news digest — {md_inline(item.get('company', ''), MAX_SOURCE)}**\n\n"
+        f"- **Headline:** {md_inline(item.get('title', ''), MAX_TITLE)}\n"
+        f"- **Source:** {md_inline(item.get('source', ''), MAX_SOURCE)}\n"
+        f"- **Published:** {md_inline(item.get('published', ''), MAX_DATE)}\n"
+        f"- **Original link:** {'<' + link + '>' if link else '_unavailable_'}\n\n"
         "Posted by FAI's automated news feed. This is a pointer to a third-party "
         "report, not a verified claim by FAI. Check the original source before "
         "citing it; accountability evidence belongs in [RESEARCH/](https://github.com/FAI-Union/FckAI/tree/main/RESEARCH).\n"
@@ -384,7 +488,7 @@ def publish(item: dict, category_id: str, repo_id: str, token: str) -> str:
         discussion { number url title }
       }
     }"""
-    title = f"[News] {item['title']}"[:240]
+    title = f"[News] {clean_field(item.get('title', ''), MAX_TITLE - 7)}"
     data = graphql(mutation, {
         "repositoryId": repo_id,
         "categoryId": category_id,
