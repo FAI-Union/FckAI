@@ -62,6 +62,6 @@ When submitting a claim without a source, it will be tagged `needs-source` and w
 
 ## How to use / 使用方式
 
-- Policy proposals must cite at least one `EV-YYYY-NNN` ID — see [POLICY/](POLICY/).
-- Campaigns must link to the discussion or issue that authorised them — see [CAMPAIGNS/](CAMPAIGNS/).
+- Policy proposals must cite at least one `EV-YYYY-NNN` ID — see [POLICY/](../POLICY/).
+- Campaigns must link to the discussion or issue that authorised them — see [CAMPAIGNS/](../CAMPAIGNS/).
 - Translations of a card keep the same ID and add a locale suffix, e.g. `EV-2026-001.zh-CN.md`.
