@@ -1,0 +1,68 @@
+name: Content validation
+
+# Block low-effort or link-farm PRs at the check level.
+# Evidence/policy/campaign changes need a source URL in the PR body;
+# translations must follow the i18n title convention and update LANGUAGES.md.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  validate:
+    name: Validate submission requirements
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check paths, title and source links
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              per_page: 100
+            });
+            const paths = files.map((file) => file.filename);
+            const problems = [];
+
+            const contentPaths = paths.filter((path) =>
+              /^(RESEARCH|POLICY|CAMPAIGNS)\/.*\.md$/i.test(path)
+            );
+            if (contentPaths.length > 0 && !/https?:\/\//i.test(pr.body ?? '')) {
+              problems.push(
+                'PRs changing RESEARCH/, POLICY/ or CAMPAIGNS/ must include at least one source URL in the description.'
+              );
+            }
+
+            const localePaths = paths.filter((path) => /^locales\//.test(path));
+            if (localePaths.length > 0) {
+              if (!/^i18n\([^)]+\):/.test(pr.title ?? '')) {
+                problems.push(
+                  'Translation PRs must use the title format `i18n(<tag>): add <Language> translation`.'
+                );
+              }
+              if (!paths.includes('LANGUAGES.md')) {
+                problems.push('Translation PRs must also update LANGUAGES.md.');
+              }
+            }
+
+            const added = files
+              .flatMap((file) => (file.patch ?? '').split('\n'))
+              .filter((line) => line.startsWith('+') && !line.startsWith('+++'))
+              .join('\n');
+            const urlCount = (added.match(/https?:\/\//gi) ?? []).length;
+            if (urlCount > 12) {
+              problems.push(
+                `Too many new links (${urlCount}). Split promotional links into a separate, reviewed PR.`
+              );
+            }
+
+            if (problems.length > 0) {
+              core.setFailed(problems.join(' '));
+            }

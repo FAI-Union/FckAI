@@ -84,6 +84,8 @@ Don't see your language? [Contribute a translation](CONTRIBUTING.md#translating)
 3. When submitting factual content, always include the original source. Unsourced claims will be tagged `needs-source`.
 4. Want to translate? Read [CONTRIBUTING.md](CONTRIBUTING.md).
 
+Submissions are screened automatically for bot accounts and missing sources; see [Automated checks](CONTRIBUTING.md#automated-checks). A bot can flag a submission, but only a maintainer can reject it.
+
 ## Disclaimer
 
 FAI is a self-organized community initiative, **unaffiliated with GitHub, Inc. or any commercial entity**. This project contains no commercial promotion, does not collect sensitive personal information, and is not used for any commercial transaction. The site's numeric metrics merely reflect community submissions and do not constitute a scientific survey or authoritative conclusion.

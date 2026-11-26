@@ -37,3 +37,14 @@ The repository's default language is **English**. All translations live in `loca
 ## Review process
 
 Translation PRs are reviewed by a maintainer for accuracy and consistency, following the [Governance](GOVERNANCE.md) rules. Consensus-based decisions and records are kept in Issues/Discussions.
+
+## Automated checks / 自动检查
+
+Two GitHub Actions workflows screen every new issue and pull request:
+
+- **Contribution triage** closes submissions from automated accounts (`suspected-bot`). Brand-new empty accounts and submissions without a source link are only labelled `needs-review` / `needs-source` — they are **never** rejected by the bot. A maintainer always decides.
+- **Content validation** fails a PR that changes `RESEARCH/`, `POLICY/` or `CAMPAIGNS/` without a source URL in the description, or a translation PR that omits the `i18n(<tag>):` title format or the `LANGUAGES.md` update.
+
+If a check is wrong, reply in the thread and mention a maintainer. Do not open a duplicate submission.
+
+两个 GitHub Actions 工作流会对新 issue 和 PR 做初筛：机器账号直接关闭；新账号、无来源链接仅打标签，**不会**由机器人直接拒绝，一切由维护者人工决定。若判断有误请在原帖回复并 @ 维护者，不要重复提交。
